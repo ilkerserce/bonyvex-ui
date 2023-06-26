@@ -1,0 +1,95 @@
+$colors: (
+  background: #F8F7FA,
+  white: #fff,
+  text: rgba(51, 48, 60, .87),
+  mat-checkbox-border: rgba(51 48 60 / 55%),
+  toggle: #DDD,
+  sidebar-color: #fff,
+  light-background: #F8F7FA,
+  light-text: #313131,
+  light-toggle: #DDD,
+  light-sidebar-color: #fff,
+  dark-background: #1d2135,
+  dark-text: #777,
+  dark-toggle: #DDD,
+  dark-sidebar-color: #242526,
+  primary: #7367f0,
+  secondary: rgba(255, 255, 255, .5),
+  success: #55c57a,
+  primary-light: #7ed56f,
+  primary-dark: #28b485,
+  secondary-light: #ffb900,
+  taxi-yellow: #FFC005,
+  secondary-dark: #ff7730,
+  tertiary-light: #2998ff,
+  tertiary-dark: #5643fa,
+  grey-light-1: #f7f7f7,
+  grey-light-2: #eee,
+  grey-dark: #777,
+  grey-dark-2: #999,
+  grey-dark-3: #333,
+);
+
+//Fonts
+$default-font-size: 1.6rem;
+//General Colors
+$color-background: #777;
+$color-text: #313131;
+$color-toggle: #DDD;
+$color-sidebar-color: #fff;
+$color-sidebar-right-border: #9f9b9b85;
+//Light Mode
+// $color-background: #2F3349;
+$color-light-background: #777;
+$color-light-text: #313131;
+$color-light-toggle: #DDD;
+$color-light-sidebar-color: #fff;
+//Dark Mode
+$color-dark-background: #1d2135;
+$color-dark-text: #777;
+$color-dark-toggle: #DDD;
+$color-dark-sidebar-color: #242526;
+//Colors | Primary, Secondary Etc,
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+$color-toggle: #DDD;
+//Custom Colors
+$color-text: #fff;
+$color-white: #fff;
+$color-black: #000;
+$color-taxi-yellow: #FFC005;
+//Form Colors
+$color-success: #55c57a;
+$color-error: red;
+$color-info: #00b4d8;
+//Sidebar Colors
+$color-sidebar: #999;
+$color-sidebar-primary: #5643fa;
+//Transitions
+$transition-1: all .2s ease;
+$transition-2: all .3s ease;
+$transition-3: all .4s ease;
+$transition-4: all .5s ease;
+//Box Shadows
+$box-shadow-1: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+$box-shadow-2: 0 1rem 4rem rgba(0, 0, 0, 0.15);
+
+:root {
+
+  @each $name,
+  $color in $colors {
+    --color-#{$name} : #{$color};
+  }
+
+  --theme: 'light';
+}

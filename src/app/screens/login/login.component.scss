@@ -1,0 +1,44 @@
+@import '/src/styles/abstracts/variables';
+@import '/src/styles/abstracts/mixins';
+
+.taxi-icon {
+  margin: 1rem 0 2rem 0;
+}
+
+.bi-taxi-front-fill {
+  color: var(--color-taxi-yellow);
+  font-size: 7rem;
+}
+
+.login-container {
+  height: 100vh;
+
+  @include respond(phone) {
+    background-color: var(--color-background);
+  }
+}
+
+.login-box {
+  max-width: 45rem;
+  background-color: var(--color-background);
+  backdrop-filter: blur(6px);
+  border-radius: 25px;
+  height: auto;
+}
+
+.forgot-password {
+  transition: all .5s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translate(0)
+  }
+
+  & a {
+    color: --color-tertiary-light;
+    text-decoration: none;
+  }
+}

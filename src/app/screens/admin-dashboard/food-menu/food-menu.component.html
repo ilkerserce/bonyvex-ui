@@ -1,0 +1,24 @@
+<app-box>
+  <h1 class="mb-5">Yemek Menüsü</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Fiyat</th>
+        <th scope="col">Eylem</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let food of foods">
+        <th scope="row">{{food.id}}</th>
+        <td>{{food.name}}</td>
+        <td>{{food.price}} ₺</td>
+        <td>
+          <i class="bi bi-pencil-square"></i>
+          <i class="bi bi-eye"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</app-box>

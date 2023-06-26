@@ -1,0 +1,94 @@
+.mat-mdc-checkbox label {
+  color: var(--color-text);
+  font-size: $default-font-size;
+}
+
+.mdc-checkbox__background {
+  border-color: var(--color-mat-checkbox-border) !important;
+}
+
+div.form-column {
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.form-helpers {
+  margin: 1.5rem 0 2rem 0;
+}
+
+.invalid-feedback {
+  display: block !important;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .5s;
+
+  &-shown {
+    visibility: visible !important;
+    opacity: 1 !important;
+    animation-name: invalid-feedback-text;
+    animation-duration: .5s;
+  }
+}
+
+.invalid-label {
+  color: $color-error !important;
+}
+
+.input-box {
+  position: relative;
+
+  & input {
+    padding: 1rem;
+    width: 100%;
+    border: 1px solid rgba($color-success, .25);
+    background-color: var(--color-background);
+    border-radius: 5px;
+    outline: none;
+    color: var(--color-text);
+    border-radius: 10px;
+    transition: all .5s;
+  }
+
+  & select {
+    padding: 1rem;
+    width: 100%;
+    border: 1px solid rgba($color-success, .25);
+    background-color: var(--color-background);
+    border-radius: 5px;
+    outline: none;
+    color: var(--color-text);
+    border-radius: 10px;
+    transition: all .5s;
+  }
+
+  & label {
+    position: absolute;
+    left: 0;
+    padding: 0 1rem;
+    pointer-events: none;
+    font-size: 1.1rem;
+    // color: $color-primary;
+    z-index: 2;
+    background: var(--color-background);
+    transition: all .5s;
+    transform: translateX(10px) translateY(-8px);
+  }
+
+  &>.is-invalid {
+    border: 1px solid $color-error !important;
+    animation-name: invalid-feedback;
+    animation-duration: .5s;
+  }
+}
+
+
+.input-bg-white {
+  & input {
+    background-color: var(--color-white);
+  }
+
+  & label {
+    background-color: var(--color-white);
+  }
+}

@@ -1,0 +1,10 @@
+@import '/src/styles.scss';
+
+.box {
+  background: var(--color-secondary);
+  border-radius: 8px;
+  margin-top: 10px;
+  color: var(--color-text);
+  box-shadow: $box-shadow-2;
+  padding: 1.5rem 6rem;
+}

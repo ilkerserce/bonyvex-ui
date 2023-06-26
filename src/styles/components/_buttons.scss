@@ -1,0 +1,117 @@
+.button:disabled {
+  background-color: gray;
+  color: $color-white;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.button {
+
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .5rem 2rem;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    /*6- Psuedo'nun hover classına after ekleniyor. Burada hover olduktan sonra 1.5 kat büyürken opacity'i 0 a çekiyor ve yok olma efekti oluşuyor. Süreci görmek için opacity
+  0.1'e çekilerek gözlem yapılabilir. */
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:disabled{
+    cursor: no-drop;
+  }
+
+  &:active:not(:disabled),
+  &:focus:not(:disabled) {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    display: inline-block;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: $color-white;
+    display: inline-block;
+
+    &::after {
+      background-color: var(--color-primary);
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+  /*7- Animasyon ekleniyor. Animasyona gecikme uyguladım, gecikme sürecinde butonun stilini %0 daki gibi gözükmesi için aniamtion-fill-mode özelliği kullanılıyor. */
+
+  &--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+
+  // &:link,
+  // &:visited {
+  //   color: var(--color-primary);
+  //   display: inline-block;
+  //   text-decoration: none;
+  //   border-bottom: 1px solid var(--color-primary);
+  // }
+
+  &:is(:link, :visited) {
+    font-size: $default-font-size;
+    color: var(--color-primary);
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-primary);
+    transition: all .2s;
+  }
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(0);
+  }
+}
