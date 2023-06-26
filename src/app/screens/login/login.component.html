@@ -23,21 +23,15 @@
           <label for="username" class="form-label"
             [ngClass]="{ 'invalid-label': f?.['username']?.touched && loginForm.get('username')?.invalid }">Kullanıcı
             Adı</label>
-          <!-- <div *ngIf="submitted && loginForm.get('username')?.errors" class="invalid-feedback"> -->
-          <!-- <div *ngIf="submitted && this.loginForm.controls?.['username']?.errors?.['required']" -->
           <div
             [ngClass]="{ 'invalid-feedback-shown': f?.['username']?.touched && f?.['username']?.errors?.['required'] }"
             class="invalid-feedback">Kullanıcı adı girilmelidir.</div>
-          <!-- </div> -->
         </div>
         <div class="form-column input-box">
           <input type="password" formControlName="password"
             [ngClass]="{ 'is-invalid': f?.['password']?.touched && loginForm.get('password')?.invalid }">
           <label for="password" class="form-label"
             [ngClass]="{ 'invalid-label': f?.['password']?.touched && loginForm.get('password')?.invalid }">Şifre</label>
-          <!-- <div *ngIf="submitted && loginForm.get('password')?.errors" class="invalid-feedback">
-            <div *ngIf="this.loginForm.controls?.['password']?.errors?.['required']">Şifre girilmelidir.</div>
-          </div> -->
           <div
             [ngClass]="{ 'invalid-feedback-shown': f?.['password']?.touched && this.loginForm.controls?.['password']?.errors?.['required'] }"
             class="invalid-feedback">Şifre girilmelidir.</div>

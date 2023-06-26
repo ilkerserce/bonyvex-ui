@@ -1,5 +1,6 @@
 export enum ApiPaths {
   AddFood = '',
+  AddCategory = '',
 
 
   Login = 'Authorization/login',

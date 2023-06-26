@@ -1,1 +1,42 @@
-<router-outlet></router-outlet>
+<app-box>
+  <div class="p-5">
+    <form [formGroup]="addCategoryFormGroup" (ngSubmit)="addCategory()">
+      <div class="row">
+        <div class="col">
+          <h1>Yeni Yemek Ekle</h1>
+          <p class="my-3">Yemek menüsüne yemek eklemek için aşağıdaki gerekli alanları doldurmanız gerekmektedir.</p>
+        </div>
+      </div>
+      <div class="w-75">
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="foodName"
+            [ngClass]="{ 'is-invalid': f?.['foodName']?.touched && addCategoryFormGroup.get('foodName')?.invalid }">
+          <label for="foodName" class="form-label"
+            [ngClass]="{ 'invalid-label': f?.['foodName']?.touched && addCategoryFormGroup.get('foodName')?.invalid }">Kategori
+            Adı</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f?.['foodName']?.touched && f?.['foodName']?.errors?.['required'] }"
+            class="invalid-feedback">Kategori adı girilmelidir.
+          </div>
+        </div>
+        <mat-checkbox formControlName="rememberMe">
+          Alt kategori mi?
+        </mat-checkbox>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" size="50" formControlName="foodDescription"
+            [ngClass]="{ 'is-invalid': f?.['foodDescription']?.touched && addCategoryFormGroup.get('foodDescription')?.invalid }">
+          <label for="foodDescription" class="form-label"
+            [ngClass]="{ 'invalid-label': f?.['foodDescription']?.touched && addCategoryFormGroup.get('foodDescription')?.invalid }">Yemek
+            Açıklaması</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f?.['foodDescription']?.touched && f?.['foodDescription']?.errors?.['required'] }"
+            class="invalid-feedback">Yemek açıklaması girilmelidir.
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="text-center">
+    <button type="submit" [disabled]="this.addCategoryFormGroup.invalid" class="button button--primary mb-3">Ekle</button>
+  </div>
+</app-box>

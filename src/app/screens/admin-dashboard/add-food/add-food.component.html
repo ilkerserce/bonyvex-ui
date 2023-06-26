@@ -1,9 +1,5 @@
 <app-box>
   <div class="p-5">
-    <!-- foodDescription
-foodPrice
-foodImageUrl
-foodVideoUrl -->
     <form [formGroup]="addFoodFormGroup" (ngSubmit)="addFood()">
       <div class="row">
         <div class="col">
@@ -60,7 +56,8 @@ foodVideoUrl -->
           <input type="text" size="50" formControlName="foodVideoUrl"
             [ngClass]="{ 'is-invalid': f?.['foodVideoUrl']?.touched && addFoodFormGroup.get('foodVideoUrl')?.invalid }">
           <label for="foodVideoUrl" class="form-label" foodImageUrl
-            [ngClass]="{ 'invalid-label': f?.['foodVideoUrl']?.touched && addFoodFormGroup.get('foodVideoUrl')?.invalid }">Yemek Video URL</label>
+            [ngClass]="{ 'invalid-label': f?.['foodVideoUrl']?.touched && addFoodFormGroup.get('foodVideoUrl')?.invalid }">Yemek
+            Video URL</label>
           <div
             [ngClass]="{ 'invalid-feedback-shown': f?.['foodVideoUrl']?.touched && f?.['foodVideoUrl']?.errors?.['required'] }"
             class="invalid-feedback">Yemek Video URL girilmelidir.
