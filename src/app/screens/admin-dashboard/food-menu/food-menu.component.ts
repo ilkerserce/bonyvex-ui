@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { FoodsService } from 'src/app/services/foods.service';
+import { ToastrHandleService } from 'src/app/services/toastr-handle.service';
 
 @Component({
   selector: 'app-food-menu',
@@ -8,9 +11,17 @@ import { Component } from '@angular/core';
 
 
 export class FoodMenuComponent {
+  private destroy$: Subject<boolean> = new Subject<boolean>();
+
   foods: any;
 
+  constructor(private foodsService: FoodsService,
+    private toastrHandleService: ToastrHandleService) {
+  }
+
   ngOnInit(): void {
+    this.getFoods();
+
     this.foods = [
       {
         "id": 1,
@@ -39,7 +50,19 @@ export class FoodMenuComponent {
     ]
   }
 
-  constructor() {
+  getFoods() {
+    this.foodsService.getFoods()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: res => {
 
+        },
+        error: err => {
+          if (err.error) {
+
+          }
+        }
+      });
   }
 }
+

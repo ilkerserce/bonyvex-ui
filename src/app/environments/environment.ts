@@ -1,5 +1,5 @@
-// export const environment = {
-//   production: false,
-//   baseUrl: 'http://88.99.14.147:90/api',
-//   loginUrl:'loginUrlStr'
-// };
+export const environment = {
+  production: false,
+  baseUrl: 'http://localhost:5000/api',
+  loginUrl:'loginUrlStr'
+};

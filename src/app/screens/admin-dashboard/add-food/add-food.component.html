@@ -1,6 +1,6 @@
 <app-box>
   <div class="p-5">
-    <form [formGroup]="addFoodFormGroup" (ngSubmit)="addFood()">
+    <form [formGroup]="addFoodFormGroup">
       <div class="row">
         <div class="col">
           <h1>Yeni Yemek Ekle</h1>
@@ -9,64 +9,91 @@
       </div>
       <div class="w-75">
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" formControlName="foodName"
-            [ngClass]="{ 'is-invalid': f?.['foodName']?.touched && addFoodFormGroup.get('foodName')?.invalid }">
+          <input type="text" name="foodName" formControlName="foodName"
+            [ngClass]="{ 'is-invalid': f['foodName'].touched && addFoodFormGroup.get('foodName')?.invalid }">
           <label for="foodName" class="form-label"
-            [ngClass]="{ 'invalid-label': f?.['foodName']?.touched && addFoodFormGroup.get('foodName')?.invalid }">Yemek
+            [ngClass]="{ 'invalid-label': f['foodName'].touched && addFoodFormGroup.get('foodName')?.invalid }">Yemek
             Adı</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f?.['foodName']?.touched && f?.['foodName']?.errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['foodName'].touched && f['foodName'].errors?.['required'] }"
             class="invalid-feedback">Yemek adı girilmelidir.
           </div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" size="50" formControlName="foodDescription"
-            [ngClass]="{ 'is-invalid': f?.['foodDescription']?.touched && addFoodFormGroup.get('foodDescription')?.invalid }">
+          <input type="text" formControlName="foodDescription"
+            [ngClass]="{ 'is-invalid': f['foodDescription'].touched && addFoodFormGroup.get('foodDescription')?.invalid }">
           <label for="foodDescription" class="form-label"
-            [ngClass]="{ 'invalid-label': f?.['foodDescription']?.touched && addFoodFormGroup.get('foodDescription')?.invalid }">Yemek
+            [ngClass]="{ 'invalid-label': f['foodDescription'].touched && addFoodFormGroup.get('foodDescription')?.invalid }">Yemek
             Açıklaması</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f?.['foodDescription']?.touched && f?.['foodDescription']?.errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['foodDescription'].touched && f['foodDescription'].errors?.['required'] }"
             class="invalid-feedback">Yemek açıklaması girilmelidir.
           </div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" size="50" formControlName="foodPrice"
-            [ngClass]="{ 'is-invalid': f?.['foodPrice']?.touched && addFoodFormGroup.get('foodPrice')?.invalid }">
+          <input type="text" formControlName="foodPrice"
+            [ngClass]="{ 'is-invalid': f['foodPrice'].touched && addFoodFormGroup.get('foodPrice')?.invalid }">
           <label for="foodPrice" class="form-label" foodPrice
-            [ngClass]="{ 'invalid-label': f?.['foodPrice']?.touched && addFoodFormGroup.get('foodPrice')?.invalid }">Yemek
+            [ngClass]="{ 'invalid-label': f['foodPrice'].touched && addFoodFormGroup.get('foodPrice')?.invalid }">Yemek
             Fiyatı</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f?.['foodPrice']?.touched && f?.['foodPrice']?.errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['foodPrice'].touched && f['foodPrice'].errors?.['required'] }"
             class="invalid-feedback">Yemek fiyatı girilmelidir.
           </div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" size="50" formControlName="foodImageUrl"
-            [ngClass]="{ 'is-invalid': f?.['foodImageUrl']?.touched && addFoodFormGroup.get('foodImageUrl')?.invalid }">
+          <input type="text" formControlName="foodImageUrl"
+            [ngClass]="{ 'is-invalid': f['foodImageUrl'].touched && addFoodFormGroup.get('foodImageUrl')?.invalid }">
           <label for="foodImageUrl" class="form-label" foodImageUrl
-            [ngClass]="{ 'invalid-label': f?.['foodImageUrl']?.touched && addFoodFormGroup.get('foodImageUrl')?.invalid }">Yemek
+            [ngClass]="{ 'invalid-label': f['foodImageUrl'].touched && addFoodFormGroup.get('foodImageUrl')?.invalid }">Yemek
             Görseli</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f?.['foodImageUrl']?.touched && f?.['foodImageUrl']?.errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['foodImageUrl'].touched && f['foodImageUrl'].errors?.['required'] }"
             class="invalid-feedback">Yemek Görseli yüklenmelidir.
           </div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" size="50" formControlName="foodVideoUrl"
-            [ngClass]="{ 'is-invalid': f?.['foodVideoUrl']?.touched && addFoodFormGroup.get('foodVideoUrl')?.invalid }">
+          <input type="text" formControlName="foodVideoUrl"
+            [ngClass]="{ 'is-invalid': f['foodVideoUrl'].touched && addFoodFormGroup.get('foodVideoUrl')?.invalid }">
           <label for="foodVideoUrl" class="form-label" foodImageUrl
-            [ngClass]="{ 'invalid-label': f?.['foodVideoUrl']?.touched && addFoodFormGroup.get('foodVideoUrl')?.invalid }">Yemek
+            [ngClass]="{ 'invalid-label': f['foodVideoUrl'].touched && addFoodFormGroup.get('foodVideoUrl')?.invalid }">Yemek
             Video URL</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f?.['foodVideoUrl']?.touched && f?.['foodVideoUrl']?.errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['foodVideoUrl'].touched && f['foodVideoUrl'].errors?.['required'] }"
             class="invalid-feedback">Yemek Video URL girilmelidir.
+          </div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <select formControlName="foodPrimaryCategory"
+            [ngClass]="{ 'is-invalid': f['foodPrimaryCategory'].touched && addFoodFormGroup.get('foodPrimaryCategory')?.invalid }">
+            <option value="1">1</option>
+          </select>
+          <label for="foodPrimaryCategory" class="form-label" foodImageUrl
+            [ngClass]="{ 'invalid-label': f['foodPrimaryCategory'].touched && addFoodFormGroup.get('foodPrimaryCategory')?.invalid }">Ana
+            Kategori</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['foodPrimaryCategory'].touched && f['foodPrimaryCategory'].errors?.['required'] }"
+            class="invalid-feedback">Ana Kategori Seçilmelidir.
+          </div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <select formControlName="foodSubCategory"
+            [ngClass]="{ 'is-invalid': f['foodSubCategory'].touched && addFoodFormGroup.get('foodSubCategory')?.invalid }">
+            <option value="1">1</option>
+          </select>
+          <label for="foodSubCategory" class="form-label" foodImageUrl
+            [ngClass]="{ 'invalid-label': f['foodSubCategory'].touched && f['foodSubCategory'].invalid }">
+            Alt Kategori</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['foodSubCategory'].touched && f['foodSubCategory'] .errors?.['required'] }"
+            class="invalid-feedback">Alt Kategori seçilmelidir.
           </div>
         </div>
       </div>
     </form>
   </div>
   <div class="text-center">
-    <button type="submit" [disabled]="this.addFoodFormGroup.invalid" class="button button--primary mb-3">Ekle</button>
+    <button (click)="addFood()" [disabled]="this.addFoodFormGroup.invalid"
+      class="button button--primary mb-3">{{nextButtonText}}</button>
   </div>
 </app-box>

@@ -10,6 +10,7 @@ import { AdminDashboardModule } from './screens/admin-dashboard/admin-dashboard.
 import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     SharedModule,
     AdminDashboardModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

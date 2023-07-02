@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { AddCategoryComponent } from './screens/admin-dashboard/add-category/add-category.component';
 import { AddFoodComponent } from './screens/admin-dashboard/add-food/add-food.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'category-list', component: CategoryListComponent },
       { path: 'add-category', component: AddCategoryComponent },
     ],
+    canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
 ];

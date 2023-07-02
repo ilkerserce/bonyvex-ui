@@ -6,20 +6,24 @@ import { NavigationComponent } from '../components/navigation/navigation.compone
 import { DashboardLayoutComponent } from '../layouts/dashboard-layout/dashboard-layout.component';
 import { BoxComponent } from '../components/box/box.component';
 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 @NgModule({
   declarations: [
     NavigationComponent,
     DashboardLayoutComponent,
-    BoxComponent
+    BoxComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatCheckboxModule
   ],
   exports: [
     NavigationComponent,
     DashboardLayoutComponent,
-    BoxComponent
+    BoxComponent,
+    MatCheckboxModule
   ]
 })
 export class SharedModule { }

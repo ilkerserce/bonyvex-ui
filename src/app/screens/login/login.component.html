@@ -19,21 +19,21 @@
       <div class="w-75">
         <div class="form-column input-box my-3">
           <input type="text" formControlName="username"
-            [ngClass]="{ 'is-invalid': f?.['username']?.touched && loginForm.get('username')?.invalid }">
+            [ngClass]="{ 'is-invalid': f['username'].touched && loginForm.get('username')?.invalid }">
           <label for="username" class="form-label"
-            [ngClass]="{ 'invalid-label': f?.['username']?.touched && loginForm.get('username')?.invalid }">Kullanıcı
+            [ngClass]="{ 'invalid-label': f['username'].touched && loginForm.get('username')?.invalid }">Kullanıcı
             Adı</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f?.['username']?.touched && f?.['username']?.errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['username'].touched && f['username'].errors?.['required'] }"
             class="invalid-feedback">Kullanıcı adı girilmelidir.</div>
         </div>
         <div class="form-column input-box">
           <input type="password" formControlName="password"
-            [ngClass]="{ 'is-invalid': f?.['password']?.touched && loginForm.get('password')?.invalid }">
+            [ngClass]="{ 'is-invalid': f['password'].touched && loginForm.get('password')?.invalid }">
           <label for="password" class="form-label"
-            [ngClass]="{ 'invalid-label': f?.['password']?.touched && loginForm.get('password')?.invalid }">Şifre</label>
+            [ngClass]="{ 'invalid-label': f['password'].touched && loginForm.get('password')?.invalid }">Şifre</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f?.['password']?.touched && this.loginForm.controls?.['password']?.errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['password'].touched && f['password'].errors?.['required'] }"
             class="invalid-feedback">Şifre girilmelidir.</div>
           <div class="form-group">
           </div>

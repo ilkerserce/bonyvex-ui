@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject, takeUntil } from "rxjs";
-import { AddCategoryRequestModel } from 'src/app/models/addCategoryRequestModel';
-import { AddCategoryService } from 'src/app/services/add-category.service';
+import { AddPrimaryCategoryRequestModel, AddSubCategoryRequestModel } from 'src/app/models/addCategoryRequestModel';
+import { CategoriesService } from 'src/app/services/categories.service';
 import { ToastrHandleService } from 'src/app/services/toastr-handle.service'
 
 @Component({
@@ -13,15 +13,20 @@ import { ToastrHandleService } from 'src/app/services/toastr-handle.service'
 export class AddCategoryComponent {
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
+  isSubCategory: boolean = false;
+
   addCategoryFormGroup: FormGroup;
 
   constructor(private fb: FormBuilder,
-    private addCategoryService: AddCategoryService,
-    private toastrHandleService: ToastrHandleService) {
+    private categoriesService: CategoriesService) {
     this.addCategoryFormGroup = this.fb.group({
       primaryCategory: ['', Validators.required],
       secondaryCategory: ['', Validators.required],
     });
+  }
+
+  subCategoryChanged() {
+    this.isSubCategory = !this.isSubCategory
   }
 
   get f() {
@@ -37,29 +42,51 @@ export class AddCategoryComponent {
 
   createRequestModel() {
     let addCategoryFormGroup = this.addCategoryFormGroup.getRawValue();
-    let requestModel: AddCategoryRequestModel = {
-      primaryCategory: addCategoryFormGroup.primaryCategory,
-      secondaryCategory: addCategoryFormGroup.secondaryCategory,
+    if (this.isSubCategory) {
+      let requestModel: AddSubCategoryRequestModel = {
+        primaryCategory: addCategoryFormGroup.primaryCategory,
+        secondaryCategory: addCategoryFormGroup.secondaryCategory,
+      }
+      return requestModel;
+    } else {
+      let requestModel: AddPrimaryCategoryRequestModel = {
+        primaryCategory: addCategoryFormGroup.primaryCategory,
+      }
+      return requestModel;
     }
-    return requestModel;
   }
 
-  addCategory() {
-    this.addCategoryService.addCategory(this.createRequestModel())
+  addPrimaryCategory() {
+    this.categoriesService.addPrimaryCategory(this.createRequestModel())
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
-          if (!res.hasError && res.data) {
-            this.clearForm();
-            this.toastrHandleService.success();
-          } else
-            this.toastrHandleService.error(res.errorMessage);
+         
         },
         error: err => {
-          if (err.error)
-            this.toastrHandleService.error(err.error);
+         
+      }});
+  }
+
+  addSubCategory() {
+    this.categoriesService.addSubCategory(this.createRequestModel())
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: res => {
+         
+        },
+        error: err => {
+
         }
       });
+  }
+
+  addCategory() {
+    if (this.isSubCategory) {
+      this.addSubCategory();
+    } else {
+      this.addPrimaryCategory();
+    }
   }
 
 }

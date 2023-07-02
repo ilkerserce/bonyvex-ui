@@ -1,9 +1,17 @@
-export class AddCategoryRequestModel implements IAddCategoryRequestModel {
+export class AddSubCategoryRequestModel implements IAddSubCategoryRequestModel {
   primaryCategory: any;
   secondaryCategory?: any;
 }
 
-interface IAddCategoryRequestModel {
+interface IAddSubCategoryRequestModel {
   primaryCategory: any;
   secondaryCategory?: any;
+}
+
+export class AddPrimaryCategoryRequestModel implements IAddPrimaryCategoryRequestModel {
+  primaryCategory: any;
+}
+
+interface IAddPrimaryCategoryRequestModel {
+  primaryCategory: any;
 }
