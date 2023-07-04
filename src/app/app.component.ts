@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bonyvex-villa';
+
+  expandMenu(expanded: boolean): void {
+    const navigation = document.querySelector('.navigation');
+    if (navigation) {
+      if (expanded) {
+        navigation.classList.add('expanded');
+      } else {
+        navigation.classList.remove('expanded');
+      }
+    }
+  }
 }

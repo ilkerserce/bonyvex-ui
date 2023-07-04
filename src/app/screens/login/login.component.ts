@@ -44,7 +44,7 @@ export class LoginComponent {
           let data = res;
           if (res == true) {
             sessionStorage.setItem('loggedIn', 'true')
-            this.router.navigate(['/food-menu']);
+            this.router.navigate(['/foods']);
             this.toastrService.success('Giriş Başarılı');
           }
         },

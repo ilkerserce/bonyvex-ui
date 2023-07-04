@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { environment } from '../environments/environment.prod';
 import { ApiPaths } from 'src/app/models/api-paths';
 import { ApiBaseResponseModel } from '../models/api-base-response.model';
@@ -24,13 +24,18 @@ export class FoodsService {
     return this.httpClient.post<ApiBaseResponseModel>(url, data);
   }
 
-  editFood(data: AddFoodRequestModel) {
-    const url = `${this.baseUrl}/${ApiPaths.EditFood}`;
+  getFoodForm(id: number) {
+    const url = `${this.baseUrl}/${ApiPaths.GetFoodForm}/${id}`;
+    return this.httpClient.get<ApiBaseResponseModel>(url);
+  }
+
+  editFood(id:number, data: AddFoodRequestModel) {
+    const url = `${this.baseUrl}/${ApiPaths.EditFood}/${id}`;
     return this.httpClient.post<ApiBaseResponseModel>(url, data);
   }
 
-  deleteFood(data: AddFoodRequestModel) {
-    const url = `${this.baseUrl}/${ApiPaths.DeleteFood}`;
-    return this.httpClient.post<ApiBaseResponseModel>(url, data);
+  deleteFood(id: number) {
+    const url = `${this.baseUrl}/${ApiPaths.DeleteFood}/${id}`;
+    return this.httpClient.delete<ApiBaseResponseModel>(url);
   }
 }

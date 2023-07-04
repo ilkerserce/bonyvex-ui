@@ -9,25 +9,69 @@
       </div>
       <div class="w-75">
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" name="foodName" formControlName="foodName"
-            [ngClass]="{ 'is-invalid': f['foodName'].touched && addFoodFormGroup.get('foodName')?.invalid }">
-          <label for="foodName" class="form-label"
-            [ngClass]="{ 'invalid-label': f['foodName'].touched && addFoodFormGroup.get('foodName')?.invalid }">Yemek
+          <input type="text" name="foodNameTR" formControlName="foodNameTR"
+            [ngClass]="{ 'is-invalid': f['foodNameTR'].touched && addFoodFormGroup.get('foodNameTR')?.invalid }">
+          <label for="foodNameTR" class="form-label"
+            [ngClass]="{ 'invalid-label': f['foodNameTR'].touched && addFoodFormGroup.get('foodNameTR')?.invalid }">Yemek
             Adı</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f['foodName'].touched && f['foodName'].errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['foodNameTR'].touched && f['foodNameTR'].errors?.['required'] }"
             class="invalid-feedback">Yemek adı girilmelidir.
           </div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" formControlName="foodDescription"
-            [ngClass]="{ 'is-invalid': f['foodDescription'].touched && addFoodFormGroup.get('foodDescription')?.invalid }">
-          <label for="foodDescription" class="form-label"
-            [ngClass]="{ 'invalid-label': f['foodDescription'].touched && addFoodFormGroup.get('foodDescription')?.invalid }">Yemek
+          <input type="text" name="foodNameENG" formControlName="foodNameENG"
+            [ngClass]="{ 'is-invalid': f['foodNameENG'].touched && addFoodFormGroup.get('foodNameENG')?.invalid }">
+          <label for="foodNameENG" class="form-label"
+            [ngClass]="{ 'invalid-label': f['foodNameENG'].touched && addFoodFormGroup.get('foodNameENG')?.invalid }">Yemek
+            Adı (İngilizce)</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['foodNameENG'].touched && f['foodNameENG'].errors?.['required'] }"
+            class="invalid-feedback">Yemek adının İngilizce'si girilmelidir.
+          </div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" name="foodNameARB" formControlName="foodNameARB"
+            [ngClass]="{ 'is-invalid': f['foodNameARB'].touched && addFoodFormGroup.get('foodNameARB')?.invalid }">
+          <label for="foodNameARB" class="form-label"
+            [ngClass]="{ 'invalid-label': f['foodNameARB'].touched && addFoodFormGroup.get('foodNameARB')?.invalid }">Yemek
+            Adı (Arapça)</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['foodNameARB'].touched && f['foodNameARB'].errors?.['required'] }"
+            class="invalid-feedback">Yemek adının Arapça'sı girilmelidir.
+          </div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="foodDescriptionTR"
+            [ngClass]="{ 'is-invalid': f['foodDescriptionTR'].touched && addFoodFormGroup.get('foodDescriptionTR')?.invalid }">
+          <label for="foodDescriptionTR" class="form-label"
+            [ngClass]="{ 'invalid-label': f['foodDescriptionTR'].touched && addFoodFormGroup.get('foodDescriptionTR')?.invalid }">Yemek
             Açıklaması</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f['foodDescription'].touched && f['foodDescription'].errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['foodDescriptionTR'].touched && f['foodDescriptionTR'].errors?.['required'] }"
             class="invalid-feedback">Yemek açıklaması girilmelidir.
+          </div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="foodDescriptionENG"
+            [ngClass]="{ 'is-invalid': f['foodDescriptionENG'].touched && addFoodFormGroup.get('foodDescriptionENG')?.invalid }">
+          <label for="foodDescriptionENG" class="form-label"
+            [ngClass]="{ 'invalid-label': f['foodDescriptionENG'].touched && addFoodFormGroup.get('foodDescriptionENG')?.invalid }">Yemek
+            Açıklaması (İngilizce)</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['foodDescriptionENG'].touched && f['foodDescriptionENG'].errors?.['required'] }"
+            class="invalid-feedback">Yemek açıklamasının İngilizce'si girilmelidir.
+          </div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="foodDescriptionARB"
+            [ngClass]="{ 'is-invalid': f['foodDescriptionARB'].touched && addFoodFormGroup.get('foodDescriptionARB')?.invalid }">
+          <label for="foodDescriptionARB" class="form-label"
+            [ngClass]="{ 'invalid-label': f['foodDescriptionARB'].touched && addFoodFormGroup.get('foodDescriptionARB')?.invalid }">Yemek
+            Açıklaması (Arapça)</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['foodDescriptionARB'].touched && f['foodDescriptionARB'].errors?.['required'] }"
+            class="invalid-feedback">Yemek açıklamasının Arapça'sı girilmelidir.
           </div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
@@ -93,7 +137,7 @@
     </form>
   </div>
   <div class="text-center">
-    <button (click)="addFood()" [disabled]="this.addFoodFormGroup.invalid"
+    <button (click)="next()" [disabled]="this.addFoodFormGroup.invalid"
       class="button button--primary mb-3">{{nextButtonText}}</button>
   </div>
 </app-box>

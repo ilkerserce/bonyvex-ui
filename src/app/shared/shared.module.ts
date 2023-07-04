@@ -6,7 +6,10 @@ import { NavigationComponent } from '../components/navigation/navigation.compone
 import { DashboardLayoutComponent } from '../layouts/dashboard-layout/dashboard-layout.component';
 import { BoxComponent } from '../components/box/box.component';
 
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -17,13 +20,19 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   imports: [
     CommonModule,
     RouterModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule
   ],
   exports: [
     NavigationComponent,
     DashboardLayoutComponent,
     BoxComponent,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class SharedModule { }

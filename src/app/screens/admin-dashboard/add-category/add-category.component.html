@@ -10,26 +10,55 @@
       </div>
       <div class="w-75">
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" formControlName="primaryCategory"
-            [ngClass]="{ 'is-invalid': f['primaryCategory'].touched && addCategoryFormGroup.get('primaryCategory')?.invalid }">
-          <label for="primaryCategory" class="form-label"
-            [ngClass]="{ 'invalid-label': f['primaryCategory'].touched && addCategoryFormGroup.get('primaryCategory')?.invalid }">Kategori
+          <input type="text" formControlName="newCategoryNameTR"
+            [ngClass]="{ 'is-invalid': f['newCategoryNameTR'].touched && addCategoryFormGroup.get('newCategoryNameTR')?.invalid }">
+          <label for="newCategoryNameTR" class="form-label"
+            [ngClass]="{ 'invalid-label': f['newCategoryNameTR'].touched && addCategoryFormGroup.get('newCategoryNameTR')?.invalid }">Kategori
             Adı</label>
           <div
-            [ngClass]="{ 'invalid-feedback-shown': f['primaryCategory'].touched && f['primaryCategory'].errors?.['required'] }"
+            [ngClass]="{ 'invalid-feedback-shown': f['newCategoryNameTR'].touched && f['newCategoryNameTR'].errors?.['required'] }"
             class="invalid-feedback">Kategori adı girilmelidir.
           </div>
         </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="newCategoryNameENG"
+            [ngClass]="{ 'is-invalid': f['newCategoryNameENG'].touched && addCategoryFormGroup.get('newCategoryNameENG')?.invalid }">
+          <label for="newCategoryNameENG" class="form-label"
+            [ngClass]="{ 'invalid-label': f['newCategoryNameENG'].touched && addCategoryFormGroup.get('newCategoryNameENG')?.invalid }">Kategori
+            Adı (İngilizce)</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['newCategoryNameENG'].touched && f['newCategoryNameENG'].errors?.['required'] }"
+            class="invalid-feedback">Kategori adı (İngilizce) girilmelidir.
+          </div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="newCategoryNameARB"
+            [ngClass]="{ 'is-invalid': f['newCategoryNameARB'].touched && addCategoryFormGroup.get('newCategoryNameARB')?.invalid }">
+          <label for="newCategoryNameARB" class="form-label"
+            [ngClass]="{ 'invalid-label': f['newCategoryNameARB'].touched && addCategoryFormGroup.get('newCategoryNameARB')?.invalid }">Kategori
+            Adı (Arapça)</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['newCategoryNameARB'].touched && f['newCategoryNameARB'].errors?.['required'] }"
+            class="invalid-feedback">Kategori adı (Arapça) girilmelidir.
+          </div>
+        </div>
         <div class="sub-category">
-          <mat-checkbox class="mb-5" (change)="subCategoryChanged()">
+          <mat-checkbox class="mb-4" (change)="subCategoryChanged()">
             Alt kategori mi?
           </mat-checkbox>
           <div *ngIf="isSubCategory" class="form-column input-box input-bg-white my-4">
-            <select class="" formControlName="secondaryCategory"
-              [ngClass]="{ 'is-invalid': f['secondaryCategory'].touched && addCategoryFormGroup.get('secondaryCategory')?.invalid }">
+            <label for="targetCategory" class="form-label"
+              [ngClass]="{ 'invalid-label': f['targetCategory'].touched && addCategoryFormGroup.get('targetCategory')?.invalid }">Bağlanacak
+              Ana Kategori</label>
+            <select class="" formControlName="targetCategory"
+              [ngClass]="{ 'is-invalid': f['targetCategory'].touched && addCategoryFormGroup.get('targetCategory')?.invalid }">
               <option>Alkol</option>
               <option>Yemek</option>
             </select>
+            <div
+              [ngClass]="{ 'invalid-feedback-shown': f['targetCategory'].touched && f['targetCategory'].errors?.['required'] }"
+              class="invalid-feedback">Bağlanacak ana kategori seçilmelidir.
+            </div>
           </div>
         </div>
 

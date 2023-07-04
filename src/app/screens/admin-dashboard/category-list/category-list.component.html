@@ -1,0 +1,35 @@
+<app-box>
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- Bu, yaprak düğümleri için ağaç düğümü şablonudur -->
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+      <!-- Yaprak düğüm için dolgu sağlamak için devre dışı bırakılmış bir düğme kullan -->
+      <button mat-icon-button disabled></button>
+      <span>{{ node.nameTR }}</span>
+      <div class="px-3 mx-3">
+        <button (click)="editCategory(node)" class="btn btn-primary mx-3">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button (click)="deleteCategory(node)" class="btn btn-primary">
+          <i class="bi bi-archive"></i>
+        </button>
+      </div>
+    </mat-tree-node>
+    <!-- Genişletilebilir düğümler için ağaç düğümü şablonu -->
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+      <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.nameTR">
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
+        </mat-icon>
+      </button>
+      <span>{{ node.nameTR }}</span>
+      <div class="px-3 mx-3">
+        <button (click)="editCategory(node)" class="btn btn-primary mx-3">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button (click)="deleteCategory(node)" class="btn btn-primary">
+          <i class="bi bi-archive"></i>
+        </button>
+      </div>
+    </mat-tree-node>
+  </mat-tree>
+</app-box>

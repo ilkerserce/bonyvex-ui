@@ -13,10 +13,12 @@ const routes: Routes = [
   {
     path: '', component: DashboardLayoutComponent,
     children: [
-      { path: 'food-menu', component: FoodMenuComponent },
-      { path: 'add-food', component: AddFoodComponent },
-      { path: 'category-list', component: CategoryListComponent },
-      { path: 'add-category', component: AddCategoryComponent },
+      { path: 'foods', component: FoodMenuComponent },
+      { path: 'foods/add', component: AddFoodComponent },
+      { path: 'foods/edit/:id', component: AddFoodComponent },
+      { path: 'categories', component: CategoryListComponent },
+      { path: 'categories/add-category', component: AddCategoryComponent },
+      { path: 'categories/edit-category/:id', component: AddCategoryComponent },
     ],
     canActivate: [AuthGuard]
   },

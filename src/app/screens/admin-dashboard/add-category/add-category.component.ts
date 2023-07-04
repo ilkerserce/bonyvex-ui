@@ -20,8 +20,10 @@ export class AddCategoryComponent {
   constructor(private fb: FormBuilder,
     private categoriesService: CategoriesService) {
     this.addCategoryFormGroup = this.fb.group({
-      primaryCategory: ['', Validators.required],
-      secondaryCategory: ['', Validators.required],
+      newCategoryNameTR: ['', Validators.required],
+      newCategoryNameENG: ['', Validators.required],
+      newCategoryNameARB: ['', Validators.required],
+      targetCategory: [''],
     });
   }
 
@@ -35,8 +37,10 @@ export class AddCategoryComponent {
 
   clearForm() {
     this.addCategoryFormGroup.patchValue({
-      primaryCategory: '',
-      secondaryCategory: '',
+      newCategoryNameTR: '',
+      newCategoryNameENG: '',
+      newCategoryNameARB: '',
+      targetCategory: null,
     });
   }
 
@@ -44,13 +48,17 @@ export class AddCategoryComponent {
     let addCategoryFormGroup = this.addCategoryFormGroup.getRawValue();
     if (this.isSubCategory) {
       let requestModel: AddSubCategoryRequestModel = {
-        primaryCategory: addCategoryFormGroup.primaryCategory,
-        secondaryCategory: addCategoryFormGroup.secondaryCategory,
+        newCategoryNameTR: addCategoryFormGroup.newCategoryNameTR,
+        newCategoryNameENG: addCategoryFormGroup.newCategoryNameENG,
+        newCategoryNameARB: addCategoryFormGroup.newCategoryNameARB,
+        targetCategory: addCategoryFormGroup.targetCategory,
       }
       return requestModel;
     } else {
       let requestModel: AddPrimaryCategoryRequestModel = {
-        primaryCategory: addCategoryFormGroup.primaryCategory,
+        newCategoryNameTR: addCategoryFormGroup.newCategoryNameTR,
+        newCategoryNameENG: addCategoryFormGroup.newCategoryNameENG,
+        newCategoryNameARB: addCategoryFormGroup.newCategoryNameARB,
       }
       return requestModel;
     }
@@ -61,11 +69,12 @@ export class AddCategoryComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
-         
+
         },
         error: err => {
-         
-      }});
+
+        }
+      });
   }
 
   addSubCategory() {
@@ -73,7 +82,7 @@ export class AddCategoryComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
-         
+
         },
         error: err => {
 
@@ -82,7 +91,9 @@ export class AddCategoryComponent {
   }
 
   addCategory() {
-    if (this.isSubCategory) {
+    const isSubCategory = this.isSubCategory;
+
+    if (isSubCategory) {
       this.addSubCategory();
     } else {
       this.addPrimaryCategory();

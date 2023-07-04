@@ -5,6 +5,7 @@ export enum ApiPaths {
   //Foods
   GetFoods = "foods/getFoods",
   AddFood = 'foods/addFood',
+  GetFoodForm = 'foods/getFoodForm',
   EditFood = "foods/editFood",
   DeleteFood = "foods/deleteFood",
 

@@ -12,11 +12,15 @@
     <tbody>
       <tr *ngFor="let food of foods">
         <th scope="row">{{food.id}}</th>
-        <td>{{food.name}}</td>
+        <td>{{food.nameTR}}</td>
         <td>{{food.price}} ₺</td>
         <td>
-          <i class="bi bi-pencil-square"></i>
-          <i class="bi bi-eye"></i>
+          <button (click)="editFood(food.id)" class="btn btn-primary">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+          <button (click)="deleteFood(food.id)" class="btn btn-primary">
+            <i class="bi bi-archive"></i>
+          </button>
         </td>
       </tr>
     </tbody>

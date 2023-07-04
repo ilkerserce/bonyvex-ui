@@ -5,6 +5,7 @@ interface IApiBaseResponseModel {
 }
 
 export class ApiBaseResponseModel implements IApiBaseResponseModel {
+  [x: string]: any[];
   data: any;
   errorMessage: any;
   hasError: any;

@@ -1,41 +1,57 @@
 export class AddFoodRequestModel implements IAddFoodRequestModel {
-  name: any;
-  description?: any;
+  nameTR: any;
+  nameENG: any;
+  nameARB: any;
+  descriptionTR?: any;
+  descriptionENG?: any;
+  descriptionARB?: any;
   price?: any;
   imageUrl?: any;
   videoUrl?: any;
-  primary_id?: any;
-  sub_id?: any;
+  primaryCategory: any;
+  subCategory: any;
 }
 
 interface IAddFoodRequestModel {
-  name: any;
-  description?: any;
+  nameTR: any;
+  nameENG: any;
+  nameARB: any;
+  descriptionTR?: any;
+  descriptionENG?: any;
+  descriptionARB?: any;
   price?: any;
   imageUrl?: any;
   videoUrl?: any;
-  primary_id?: any;
-  sub_id?: any;
+  primaryCategory: any;
+  subCategory: any;
 }
 
-export class UpdateFoodRequestModel implements IUpdateFoodRequestModel {
+export class EditFoodRequestModel implements IEditFoodRequestModel {
   id: any;
-  name: any;
-  description?: any;
+  nameTR: any;
+  nameENG: any;
+  nameARB: any;
+  descriptionTR?: any;
+  descriptionENG?: any;
+  descriptionARB?: any;
   price?: any;
   imageUrl?: any;
   videoUrl?: any;
-  primary_id?: any;
-  sub_id?: any;
+  primaryCategory: any;
+  subCategory: any;
 }
 
-interface IUpdateFoodRequestModel {
+interface IEditFoodRequestModel {
   id: any;
-  name: any;
-  description?: any;
+  nameTR: any;
+  nameENG: any;
+  nameARB: any;
+  descriptionTR?: any;
+  descriptionENG?: any;
+  descriptionARB?: any;
   price?: any;
   imageUrl?: any;
   videoUrl?: any;
-  primary_id?: any;
-  sub_id?: any;
+  primaryCategory: any;
+  subCategory: any;
 }

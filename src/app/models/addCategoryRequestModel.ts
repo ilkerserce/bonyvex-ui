@@ -1,17 +1,25 @@
 export class AddSubCategoryRequestModel implements IAddSubCategoryRequestModel {
-  primaryCategory: any;
-  secondaryCategory?: any;
+  newCategoryNameTR: any;
+  newCategoryNameENG: any;
+  newCategoryNameARB: any;
+  targetCategory?: any;
 }
 
 interface IAddSubCategoryRequestModel {
-  primaryCategory: any;
-  secondaryCategory?: any;
+  newCategoryNameTR: any;
+  newCategoryNameENG: any;
+  newCategoryNameARB: any;
+  targetCategory?: any;
 }
 
 export class AddPrimaryCategoryRequestModel implements IAddPrimaryCategoryRequestModel {
-  primaryCategory: any;
+  newCategoryNameTR: any;
+  newCategoryNameENG: any;
+  newCategoryNameARB: any;
 }
 
 interface IAddPrimaryCategoryRequestModel {
-  primaryCategory: any;
+  newCategoryNameTR: any;
+  newCategoryNameENG: any;
+  newCategoryNameARB: any;
 }
