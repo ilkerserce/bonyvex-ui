@@ -11,9 +11,11 @@ export enum ApiPaths {
 
   //Categories
   GetCategories = 'categories/getCategories',
+  GetPrimaryCategories = 'categories/getPrimaryCategories',
+  GetSubCategoryForm = 'categories/getSubCategoryForm',
 
   AddPrimaryCategory = 'categories/addPrimaryCategory',
-  EditPrimaryCategory = 'categories/editPrimaryCategory',
+  EditPrimaryCategory = 'categories/editSubCategory',
   DeletePrimaryCategory = 'categories/deletePrimaryCategory',
 
   AddSubCategory = 'categories/addSubCategory',

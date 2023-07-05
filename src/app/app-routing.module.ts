@@ -17,8 +17,8 @@ const routes: Routes = [
       { path: 'foods/add', component: AddFoodComponent },
       { path: 'foods/edit/:id', component: AddFoodComponent },
       { path: 'categories', component: CategoryListComponent },
-      { path: 'categories/add-category', component: AddCategoryComponent },
-      { path: 'categories/edit-category/:id', component: AddCategoryComponent },
+      { path: 'categories/add', component: AddCategoryComponent },
+      { path: 'categories/edit/:id', component: AddCategoryComponent },
     ],
     canActivate: [AuthGuard]
   },

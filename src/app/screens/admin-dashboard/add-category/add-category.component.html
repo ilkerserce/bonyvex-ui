@@ -1,3 +1,4 @@
+<!-- add-category.component.html -->
 <app-box>
   <div class="p-5">
     <form [formGroup]="addCategoryFormGroup">
@@ -17,8 +18,7 @@
             Adı</label>
           <div
             [ngClass]="{ 'invalid-feedback-shown': f['newCategoryNameTR'].touched && f['newCategoryNameTR'].errors?.['required'] }"
-            class="invalid-feedback">Kategori adı girilmelidir.
-          </div>
+            class="invalid-feedback">Kategori adı girilmelidir.</div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
           <input type="text" formControlName="newCategoryNameENG"
@@ -28,8 +28,7 @@
             Adı (İngilizce)</label>
           <div
             [ngClass]="{ 'invalid-feedback-shown': f['newCategoryNameENG'].touched && f['newCategoryNameENG'].errors?.['required'] }"
-            class="invalid-feedback">Kategori adı (İngilizce) girilmelidir.
-          </div>
+            class="invalid-feedback">Kategori adı (İngilizce) girilmelidir.</div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
           <input type="text" formControlName="newCategoryNameARB"
@@ -39,34 +38,30 @@
             Adı (Arapça)</label>
           <div
             [ngClass]="{ 'invalid-feedback-shown': f['newCategoryNameARB'].touched && f['newCategoryNameARB'].errors?.['required'] }"
-            class="invalid-feedback">Kategori adı (Arapça) girilmelidir.
-          </div>
+            class="invalid-feedback">Kategori adı (Arapça) girilmelidir.</div>
         </div>
         <div class="sub-category">
-          <mat-checkbox class="mb-4" (change)="subCategoryChanged()">
-            Alt kategori mi?
-          </mat-checkbox>
+          <!-- <mat-checkbox class="mb-4" (change)="subCategoryChanged()">Alt kategori mi?</mat-checkbox> -->
           <div *ngIf="isSubCategory" class="form-column input-box input-bg-white my-4">
             <label for="targetCategory" class="form-label"
               [ngClass]="{ 'invalid-label': f['targetCategory'].touched && addCategoryFormGroup.get('targetCategory')?.invalid }">Bağlanacak
               Ana Kategori</label>
             <select class="" formControlName="targetCategory"
               [ngClass]="{ 'is-invalid': f['targetCategory'].touched && addCategoryFormGroup.get('targetCategory')?.invalid }">
-              <option>Alkol</option>
-              <option>Yemek</option>
+              <option *ngFor="let primaryCategory of primaryCategoryList" [value]="primaryCategory.id">
+                {{primaryCategory.nameTR}}
+              </option>
             </select>
             <div
               [ngClass]="{ 'invalid-feedback-shown': f['targetCategory'].touched && f['targetCategory'].errors?.['required'] }"
-              class="invalid-feedback">Bağlanacak ana kategori seçilmelidir.
-            </div>
+              class="invalid-feedback">Bağlanacak ana kategori seçilmelidir.</div>
           </div>
         </div>
-
       </div>
     </form>
   </div>
   <div class="text-center">
-    <button [disabled]="this.addCategoryFormGroup.invalid" (click)="addCategory()"
-      class="button button--primary mb-3">Ekle</button>
+    <button [disabled]="addCategoryFormGroup.invalid" (click)="addCategory()"
+      class="button button--primary mb-3">{{nextButtonText}}</button>
   </div>
 </app-box>

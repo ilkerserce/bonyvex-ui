@@ -14,8 +14,7 @@
           <label for="foodNameTR" class="form-label"
             [ngClass]="{ 'invalid-label': f['foodNameTR'].touched && addFoodFormGroup.get('foodNameTR')?.invalid }">Yemek
             Adı</label>
-          <div
-            [ngClass]="{ 'invalid-feedback-shown': f['foodNameTR'].touched && f['foodNameTR'].errors?.['required'] }"
+          <div [ngClass]="{ 'invalid-feedback-shown': f['foodNameTR'].touched && f['foodNameTR'].errors?.['required'] }"
             class="invalid-feedback">Yemek adı girilmelidir.
           </div>
         </div>
@@ -75,13 +74,12 @@
           </div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" formControlName="foodPrice"
+          <input type="number" formControlName="foodPrice"
             [ngClass]="{ 'is-invalid': f['foodPrice'].touched && addFoodFormGroup.get('foodPrice')?.invalid }">
           <label for="foodPrice" class="form-label" foodPrice
             [ngClass]="{ 'invalid-label': f['foodPrice'].touched && addFoodFormGroup.get('foodPrice')?.invalid }">Yemek
             Fiyatı</label>
-          <div
-            [ngClass]="{ 'invalid-feedback-shown': f['foodPrice'].touched && f['foodPrice'].errors?.['required'] }"
+          <div [ngClass]="{ 'invalid-feedback-shown': f['foodPrice'].touched && f['foodPrice'].errors?.['required'] }"
             class="invalid-feedback">Yemek fiyatı girilmelidir.
           </div>
         </div>
@@ -110,7 +108,8 @@
         <div class="form-column input-box input-bg-white my-4">
           <select formControlName="foodPrimaryCategory"
             [ngClass]="{ 'is-invalid': f['foodPrimaryCategory'].touched && addFoodFormGroup.get('foodPrimaryCategory')?.invalid }">
-            <option value="1">1</option>
+            <option *ngFor="let primaryCategory of primaryCategoryList" [value]="primaryCategory.id">
+              {{primaryCategory.nameTR}}</option>
           </select>
           <label for="foodPrimaryCategory" class="form-label" foodImageUrl
             [ngClass]="{ 'invalid-label': f['foodPrimaryCategory'].touched && addFoodFormGroup.get('foodPrimaryCategory')?.invalid }">Ana
@@ -123,7 +122,7 @@
         <div class="form-column input-box input-bg-white my-4">
           <select formControlName="foodSubCategory"
             [ngClass]="{ 'is-invalid': f['foodSubCategory'].touched && addFoodFormGroup.get('foodSubCategory')?.invalid }">
-            <option value="1">1</option>
+            <option *ngFor="let subcategory of subCategoryList" [value]="subcategory.id">{{subcategory.nameTR}}</option>
           </select>
           <label for="foodSubCategory" class="form-label" foodImageUrl
             [ngClass]="{ 'invalid-label': f['foodSubCategory'].touched && f['foodSubCategory'].invalid }">

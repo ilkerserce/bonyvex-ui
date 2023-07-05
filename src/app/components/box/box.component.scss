@@ -7,4 +7,8 @@
   color: var(--color-text);
   box-shadow: $box-shadow-2;
   padding: 1.5rem 6rem;
+
+  @include respond(phone) {
+    padding: 1.5rem 1.5rem;
+  }
 }

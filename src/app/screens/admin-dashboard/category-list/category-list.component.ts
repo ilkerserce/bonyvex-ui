@@ -4,6 +4,8 @@ import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree'
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { Router } from '@angular/router';
+import { ToastrHandleService } from 'src/app/services/toastr-handle.service';
 
 interface TreeNode {
   id: number;
@@ -13,7 +15,6 @@ interface TreeNode {
   level?: number;
   expandable: boolean;
 }
-
 
 @Component({
   selector: 'app-category-list',
@@ -27,7 +28,9 @@ export class CategoryListComponent implements OnInit, OnDestroy {
   treeControl: FlatTreeControl<TreeNode>;
   treeFlattener: MatTreeFlattener<TreeNode, TreeNode>;
 
-  constructor(private categoriesService: CategoriesService) { }
+  constructor(private categoriesService: CategoriesService,
+    private toastrHandleService: ToastrHandleService,
+    private router: Router) { }
 
   ngOnInit() {
     this.treeControl = new FlatTreeControl<TreeNode>(
@@ -59,20 +62,19 @@ export class CategoryListComponent implements OnInit, OnDestroy {
         next: res => {
           const primaryCategories = res['primaryCategories'];
           const secondaryCategories = res['secondaryCategories'];
-  
+
           // Alt kategorileri birincil kategorilere eşleştirme
           primaryCategories.forEach(category => {
             category.children = secondaryCategories.filter(subCategory => subCategory.parent_id === category.id);
           });
-  
+
           this.dataSource.data = primaryCategories;
         },
         error: err => {
-  
+
         }
       });
   }
-  
 
   hasChild = (_: number, node: TreeNode) => !!node.children && node.children.length > 0;
 
@@ -84,16 +86,20 @@ export class CategoryListComponent implements OnInit, OnDestroy {
     };
   };
 
-  editCategory(node: TreeNode) {
-    // Düzenleme işlevi
-    // Seçilen kategorinin düzenleme işlemlerini burada gerçekleştir
-    console.log('Düzenle:', node);
+  editSubCategory(categoryId: number) {
+    this.router.navigate(['categories/edit', categoryId]);
   }
 
-  deleteCategory(node: TreeNode) {
-    // Silme işlevi
-    // Seçilen kategoriyi silme işlemlerini burada gerçekleştir
-    console.log('Sil:', node);
+  deleteSubCategory(id: number) {
+    this.categoriesService.deleteSubCategory(id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: res => {
+          this.toastrHandleService.success("Belirtilen alt kategori silindi.")
+        },
+        error: err => {
+          this.toastrHandleService.error(err)
+        }
+      });
   }
-
 }

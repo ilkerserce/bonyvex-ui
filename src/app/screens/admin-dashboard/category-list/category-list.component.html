@@ -1,15 +1,17 @@
+<div class="d-flex justify-content-center">
+  <h1>Kategoriler Listesi</h1>
+</div>
+
 <app-box>
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-    <!-- Bu, yaprak düğümleri için ağaç düğümü şablonudur -->
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-      <!-- Yaprak düğüm için dolgu sağlamak için devre dışı bırakılmış bir düğme kullan -->
       <button mat-icon-button disabled></button>
       <span>{{ node.nameTR }}</span>
-      <div class="px-3 mx-3">
-        <button (click)="editCategory(node)" class="btn btn-primary mx-3">
+      <div class="px-3 mx-3 button-group">
+        <button (click)="editSubCategory(node.id)" class="btn btn-primary mx-3">
           <i class="bi bi-pencil-square"></i>
         </button>
-        <button (click)="deleteCategory(node)" class="btn btn-primary">
+        <button (click)="deleteSubCategory(node.id)" class="btn btn-primary">
           <i class="bi bi-archive"></i>
         </button>
       </div>
@@ -23,12 +25,12 @@
       </button>
       <span>{{ node.nameTR }}</span>
       <div class="px-3 mx-3">
-        <button (click)="editCategory(node)" class="btn btn-primary mx-3">
+        <!-- <button (click)="editPrimaryCategory(node.id)" class="btn btn-primary mx-3">
           <i class="bi bi-pencil-square"></i>
         </button>
-        <button (click)="deleteCategory(node)" class="btn btn-primary">
+        <button (click)="deletePrimaryCategory(node.id)" class="btn btn-primary">
           <i class="bi bi-archive"></i>
-        </button>
+        </button> -->
       </div>
     </mat-tree-node>
   </mat-tree>

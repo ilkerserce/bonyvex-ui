@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject, takeUntil } from "rxjs";
 import { ToastrHandleService } from 'src/app/services/toastr-handle.service'
-import { AddFoodRequestModel, EditFoodRequestModel } from 'src/app/models/addFoodRequestModel';
+import { AddFoodRequestModel, EditFoodRequestModel } from 'src/app/models/add-food-request.model';
 import { FoodsService } from 'src/app/services/foods.service';
 import { AuthorizationModel } from 'src/app/models/login.model';
 import { DropdownListModel } from 'src/app/models/dropdown-list.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-add-food',
@@ -20,8 +21,8 @@ export class AddFoodComponent {
   @Input('currentUserAuthorizations') currentUserAuthorizations: AuthorizationModel = new AuthorizationModel();
   @Input('id') id: any = null;
 
-  primaryCategoryList: DropdownListModel[] = [];
-  subCategoryList: DropdownListModel[] = [];
+  primaryCategoryList: any;
+  subCategoryList: any;
 
   nextButtonText = '';
   addFoodFormGroup: FormGroup;
@@ -30,6 +31,7 @@ export class AddFoodComponent {
 
   constructor(private fb: FormBuilder,
     private foodsService: FoodsService,
+    private categoriesService: CategoriesService,
     private route: ActivatedRoute,
     private router: Router,
     private toastrHandleService: ToastrHandleService) {
@@ -49,12 +51,12 @@ export class AddFoodComponent {
   }
 
   ngOnInit(): void {
+    this.getCategories();
     this.route.params.subscribe(params => {
       this.foodId = +params['id']; // foodId parametresini alıp number tipine dönüştürüyoruz
       if (this.foodId) {
         this.nextButtonText = 'Güncelle';
         this.getFoodForm();
-        this.populateForm(this.data);
       } else {
         this.nextButtonText = 'Oluştur';
       }
@@ -81,23 +83,6 @@ export class AddFoodComponent {
     });
   }
 
-  private populateLists(data: any) {
-    this.primaryCategoryList = data.primaryCategoryList;
-    this.subCategoryList = data.subCategoryList;
-  }
-
-  getFoodForm() {
-    this.foodsService.getFoodForm(this.foodId).pipe(takeUntil(this.destroy$)).subscribe({
-      next: res => {
-        console.log(res)
-        this.populateForm(res)
-      },
-      error: err => {
-
-      }
-    })
-  }
-
   private populateForm(data: any) {
     this.addFoodFormGroup.patchValue({
       foodNameTR: data.nameTR,
@@ -114,49 +99,79 @@ export class AddFoodComponent {
     })
   }
 
-  createRequestModel() {
-    if (this.foodId) {
-      let addFoodFormGroup = this.addFoodFormGroup.getRawValue();
-      let requestModel: EditFoodRequestModel = {
-        id: this.id,
-        nameTR: addFoodFormGroup.foodNameTR,
-        nameENG: addFoodFormGroup.foodNameENG,
-        nameARB: addFoodFormGroup.foodNameARB,
-        descriptionTR: addFoodFormGroup.foodDescriptionTR,
-        descriptionENG: addFoodFormGroup.foodDescriptionENG,
-        descriptionARB: addFoodFormGroup.foodDescriptionARB,
-        price: +addFoodFormGroup.foodPrice,
-        imageUrl: addFoodFormGroup.foodImageUrl,
-        videoUrl: addFoodFormGroup.foodVideoUrl,
-        primaryCategory: 1,
-        subCategory: 1,
-      }
-
-      return requestModel;
-
-    } else {
-      let addFoodFormGroup = this.addFoodFormGroup.getRawValue();
-      let requestModel: AddFoodRequestModel = {
-        nameTR: addFoodFormGroup.foodNameTR,
-        nameENG: addFoodFormGroup.foodNameENG,
-        nameARB: addFoodFormGroup.foodNameARB,
-        descriptionTR: addFoodFormGroup.foodDescriptionTR,
-        descriptionENG: addFoodFormGroup.foodDescriptionENG,
-        descriptionARB: addFoodFormGroup.foodDescriptionARB,
-        price: +addFoodFormGroup.foodPrice,
-        imageUrl: addFoodFormGroup.foodImageUrl,
-        videoUrl: addFoodFormGroup.foodVideoUrl,
-        primaryCategory: 1,
-        subCategory: 1,
-      }
-
-      return requestModel;
-
-    }
+  private populateLists(data: any) {
+    this.primaryCategoryList = data.primaryCategories;
+    this.subCategoryList = data.secondaryCategories;
   }
 
+  getCategories() {
+    this.categoriesService.getCategories()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: res => {
+          console.log(res);
+          this.populateLists(res);
+        },
+        error: err => {
+
+        }
+      })
+  }
+
+  getFoodForm() {
+    this.foodsService.getFoodForm(this.foodId).pipe(takeUntil(this.destroy$)).subscribe({
+      next: res => {
+        console.log(res);
+        this.populateForm(res);
+      },
+      error: err => {
+
+      }
+    })
+  }
+
+  createAddRequestModel() {
+    const addFoodFormGroup = this.addFoodFormGroup.getRawValue();
+    const requestModel: AddFoodRequestModel = {
+      nameTR: addFoodFormGroup.foodNameTR,
+      nameENG: addFoodFormGroup.foodNameENG,
+      nameARB: addFoodFormGroup.foodNameARB,
+      descriptionTR: addFoodFormGroup.foodDescriptionTR,
+      descriptionENG: addFoodFormGroup.foodDescriptionENG,
+      descriptionARB: addFoodFormGroup.foodDescriptionARB,
+      price: +addFoodFormGroup.foodPrice,
+      imageUrl: addFoodFormGroup.foodImageUrl,
+      videoUrl: addFoodFormGroup.foodVideoUrl,
+      primaryCategory: addFoodFormGroup.foodPrimaryCategory,
+      subCategory: addFoodFormGroup.foodSubCategory,
+    };
+
+    return requestModel;
+  }
+
+  createEditRequestModel() {
+    const addFoodFormGroup = this.addFoodFormGroup.getRawValue();
+
+    const requestModel: EditFoodRequestModel = {
+      id: this.foodId,
+      nameTR: addFoodFormGroup.foodNameTR,
+      nameENG: addFoodFormGroup.foodNameENG,
+      nameARB: addFoodFormGroup.foodNameARB,
+      descriptionTR: addFoodFormGroup.foodDescriptionTR,
+      descriptionENG: addFoodFormGroup.foodDescriptionENG,
+      descriptionARB: addFoodFormGroup.foodDescriptionARB,
+      price: +addFoodFormGroup.foodPrice,
+      imageUrl: addFoodFormGroup.foodImageUrl,
+      videoUrl: addFoodFormGroup.foodVideoUrl,
+      primaryCategory: addFoodFormGroup.foodPrimaryCategory,
+      subCategory: addFoodFormGroup.foodSubCategory,
+    };
+    return requestModel;
+  }
+
+
   addFood() {
-    this.foodsService.addFood(this.createRequestModel())
+    this.foodsService.addFood(this.createAddRequestModel())
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
@@ -169,7 +184,7 @@ export class AddFoodComponent {
   }
 
   editFood() {
-    this.foodsService.editFood(this.foodId, this.createRequestModel())
+    this.foodsService.editFood(this.foodId, this.createEditRequestModel())
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
@@ -190,7 +205,7 @@ export class AddFoodComponent {
           this.toastrHandleService.success("Belirtilen yemek silindi.")
         },
         error: err => {
-         this.toastrHandleService.error(err)
+          this.toastrHandleService.error(err)
         }
       });
   }
@@ -201,5 +216,6 @@ export class AddFoodComponent {
     } else {
       this.addFood()
     }
+    this.router.navigate(['/foods']);
   }
 }
