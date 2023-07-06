@@ -93,8 +93,6 @@ export class AddCategoryComponent {
           this.toastrHandleService.error(err);
         }
       })
-
-
   }
 
   getSubCategoryForm() {
@@ -116,29 +114,10 @@ export class AddCategoryComponent {
       nameTR: addCategoryFormGroup.newCategoryNameTR,
       nameENG: addCategoryFormGroup.newCategoryNameENG,
       nameARB: addCategoryFormGroup.newCategoryNameARB,
-      parent_id: addCategoryFormGroup.targetCategory
+      parent_id: +addCategoryFormGroup.targetCategory
     }
     return requestModel;
-
-    // const addCategoryFormGroup = this.addCategoryFormGroup.getRawValue();
-    // if (this.isSubCategory) {
-    //   const requestModel: AddSubCategoryRequestModel = {
-    //     nameTR: addCategoryFormGroup.newCategoryNameTR,
-    //     nameENG: addCategoryFormGroup.newCategoryNameENG,
-    //     nameARB: addCategoryFormGroup.newCategoryNameARB,
-    //     parent_id: addCategoryFormGroup.targetCategory
-    //   }
-    //   return requestModel;
-    // } else {
-    //   const requestModel: AddPrimaryCategoryRequestModel = {
-    //     nameTR: addCategoryFormGroup.newCategoryNameTR,
-    //     nameENG: addCategoryFormGroup.newCategoryNameENG,
-    //     nameARB: addCategoryFormGroup.newCategoryNameARB,
-    //   }
-    //   return requestModel;
-    // }
   }
-
 
   createEditRequestModel() {
     const addCategoryFormGroup = this.addCategoryFormGroup.getRawValue();
@@ -147,57 +126,10 @@ export class AddCategoryComponent {
       nameTR: addCategoryFormGroup.newCategoryNameTR,
       nameENG: addCategoryFormGroup.newCategoryNameENG,
       nameARB: addCategoryFormGroup.newCategoryNameARB,
-      parent_id: addCategoryFormGroup.targetCategory
+      parent_id: +addCategoryFormGroup.targetCategory
     }
     return requestModel;
-
-    // if (this.isSubCategory) {
-    //   const requestModel: EditSubCategoryRequestModel = {
-    //     id: this.categoryId,
-    //     nameTR: addCategoryFormGroup.newCategoryNameTR,
-    //     nameENG: addCategoryFormGroup.newCategoryNameENG,
-    //     nameARB: addCategoryFormGroup.newCategoryNameARB,
-    //     parent_id: addCategoryFormGroup.targetCategory
-    //   }
-    //   return requestModel;
-    // } else {
-    //   const requestModel: EditPrimaryCategoryRequestModel = {
-    //     id: this.categoryId,
-    //     nameTR: addCategoryFormGroup.newCategoryNameTR,
-    //     nameENG: addCategoryFormGroup.newCategoryNameENG,
-    //     nameARB: addCategoryFormGroup.newCategoryNameARB,
-    //   }
-    //   return requestModel;
-    // }
   }
-
-  //PRIMARY OZELLIGI SUANLIK DEVRE DISI.
-
-  // addPrimaryCategory() {
-  //   this.categoriesService.addPrimaryCategory(this.createAddRequestModel())
-  //     .pipe(takeUntil(this.destroy$))
-  //     .subscribe({
-  //       next: res => {
-  //         this.toastrHandleService.success("Birincil kategori eklendi.");
-  //       },
-  //       error: err => {
-  //         this.toastrHandleService.error(err);
-  //       }
-  //     });
-  // }
-
-  // editPrimaryCategory() {
-  //   this.categoriesService.editPrimaryCategory(this.categoryId, this.createEditRequestModel())
-  //     .pipe(takeUntil(this.destroy$))
-  //     .subscribe({
-  //       next: res => {
-  //         this.toastrHandleService.success("Kategori güncellendi.");
-  //       },
-  //       error: err => {
-  //         this.toastrHandleService.error(err);
-  //       }
-  //     });
-  // }
 
   addSubCategory() {
     this.categoriesService.addSubCategory(this.createAddRequestModel())
@@ -205,6 +137,7 @@ export class AddCategoryComponent {
       .subscribe({
         next: res => {
           this.toastrHandleService.success("İkincil kategori eklendi.");
+          this.router.navigate(['/categories']);
         },
         error: err => {
           this.toastrHandleService.error(err);

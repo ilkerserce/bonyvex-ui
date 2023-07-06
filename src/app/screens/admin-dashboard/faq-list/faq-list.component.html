@@ -1,0 +1,23 @@
+<app-box>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item" *ngFor="let faq of faqs">
+      <h2 class="accordion-header" [id]="'faqTitle' + faq.id">
+        <button class="accordion-button collapsed py-4" type="button" data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#faqNumber' + faq.id" aria-expanded="false"
+          [attr.aria-controls]="'#faqNumber' + faq.id">
+          {{faq.questionTR}}
+        </button>
+      </h2>
+      <div [id]="'faqNumber' + faq.id" class="accordion-collapse collapse" [attr.aria-labelledby]="'faqTitle' + faq.id"
+        [attr.data-bs-parent]="'#faqAccordion'">
+        <div class="accordion-body">
+          {{faq.answerTR}}
+          <div class="d-flex justify-content-center align-items-center my-4">
+            <button class="button button--edit mx-3">Düzenle</button>
+            <button class="button button--delete mx-3">Sil</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-box>

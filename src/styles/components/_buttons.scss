@@ -32,7 +32,7 @@
     }
   }
 
-  &:disabled{
+  &:disabled {
     cursor: no-drop;
   }
 
@@ -50,6 +50,26 @@
 
     &::after {
       background-color: $color-white;
+    }
+  }
+
+  &--edit {
+    background-color: $color-edit;
+    color: $color-white;
+    display: inline-block;
+
+    &::after {
+      background-color: $color-edit;
+    }
+  }
+
+  &--delete {
+    background-color: $color-danger;
+    color: $color-white;
+    display: inline-block;
+
+    &::after {
+      background-color: $color-danger;
     }
   }
 

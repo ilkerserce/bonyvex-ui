@@ -8,6 +8,8 @@ import { AddFoodComponent } from './add-food/add-food.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FaqListComponent } from './faq-list/faq-list.component';
+import { FaqAddUpdateComponent } from './faq-add-update/faq-add-update.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     AddFoodComponent,
     CategoryListComponent,
     AddCategoryComponent,
+    FaqListComponent,
+    FaqAddUpdateComponent,
   ],
   imports: [
     CommonModule,

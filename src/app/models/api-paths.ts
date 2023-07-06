@@ -23,8 +23,9 @@ export enum ApiPaths {
   DeleteSubCategory = 'categories/deleteSubCategory',
 
   //FAQ
-  GetFAQs = "",
-  AddFAQ = "",
-  EditFAQ = "",
-  DeleteFAQ = "",
+  GetFAQs = "faqs/getFaqs",
+  GetFAQForm = "faqs/getFaqForm",
+  AddFAQ = "faqs/add",
+  EditFAQ = "faq/edit",
+  DeleteFAQ = "faqs/deleteFaq",
 }

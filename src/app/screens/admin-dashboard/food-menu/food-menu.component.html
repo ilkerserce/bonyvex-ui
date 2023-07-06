@@ -1,4 +1,4 @@
-<app-box>
+<app-box class="text-center">
   <h1 class="mb-5">Yemek Menüsü</h1>
   <table class="table">
     <thead>
@@ -10,15 +10,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let food of foods">
-        <th scope="row">{{food.id}}</th>
+      <tr *ngFor="let food of foods let i = index">
+        <th scope="row">{{i+1}}</th>
         <td>{{food.nameTR}}</td>
         <td>{{food.price}} ₺</td>
         <td>
-          <button (click)="editFood(food.id)" class="btn btn-primary">
+          <button (click)="editFood(food.id)" class="btn btn-primary mx-3">
             <i class="bi bi-pencil-square"></i>
           </button>
-          <button (click)="deleteFood(food.id)" class="btn btn-primary">
+          <button (click)="deleteFood(food.id)" class="btn btn-primary mx-3">
             <i class="bi bi-archive"></i>
           </button>
         </td>

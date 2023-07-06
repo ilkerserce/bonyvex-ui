@@ -95,7 +95,8 @@ export class CategoryListComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
-          this.toastrHandleService.success("Belirtilen alt kategori silindi.")
+          this.toastrHandleService.success("Belirtilen alt kategori silindi.");
+          this.fetchPrimaryCategories();
         },
         error: err => {
           this.toastrHandleService.error(err)
