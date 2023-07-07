@@ -38,7 +38,7 @@ export class FoodMenuComponent {
           this.getFoods();
         },
         error: err => {
-          this.toastrHandleService.error(err)
+          this.toastrHandleService.error(err.message)
         }
       });
   }
@@ -52,7 +52,7 @@ export class FoodMenuComponent {
           console.log(res.data)
         },
         error: err => {
-          this.toastrHandleService.error(err);
+          this.toastrHandleService.error(err.message);
         }
       });
   }

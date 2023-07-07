@@ -1,8 +1,16 @@
-<div class="d-flex justify-content-center">
-  <h1>Kategoriler Listesi</h1>
-</div>
-
 <app-box>
+  <app-sub-header>
+    <ng-container title>
+      Kategoriler Listesi
+    </ng-container>
+    <ng-container text>
+      Burada yiyecek ve içeceklerin ait oldukları kategoriler listelenmektedir. Birincil kategorilerin altındaki ikincil
+      kategoriler bulunmaktadır. Örneğin Alkol birincil kategorisindeki Tekilalar ikincil kategoridir.
+      Düzenleme yapmak istediğiniz ikincil kategorinin yanındaki kağıt kalem ikonuna tıklayarak ile ilgili kategoriyi
+      düzenleyebilir,
+      çöp kutusu ikonuna tıklayarak o kategoriyi silebilirsiniz.
+    </ng-container>
+  </app-sub-header>
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
       <button mat-icon-button disabled></button>

@@ -17,7 +17,8 @@ export class FaqListComponent {
   constructor(
     private faqService: FaqsService,
     private toastrHandleService: ToastrHandleService,
-    private router: Router
+    private router: Router,
+    private faqsService: FaqsService
   ) {
 
   }
@@ -34,7 +35,26 @@ export class FaqListComponent {
           this.faqs = res;
         },
         error: err => {
-          this.toastrHandleService.error(err);
+          console.log(err)
+          this.toastrHandleService.error(err.message);
+        }
+      });
+  }
+
+  editFAQ(faqId: number) {
+    this.router.navigate(['faqs/edit', faqId]);
+  }
+
+  deleteFAQ(faqId: number) {
+    this.faqsService.deleteFAQ(faqId)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: res => {
+          this.toastrHandleService.success("Belirtilen soru silindi.");
+          this.getFaqs();
+        },
+        error: err => {
+          this.toastrHandleService.error(err.message)
         }
       });
   }

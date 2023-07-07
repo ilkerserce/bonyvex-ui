@@ -1,1 +1,77 @@
-<p>faq-add-update works!</p>
+<!-- add-category.component.html -->
+<app-box>
+  <div class="p-5">
+    <form [formGroup]="addFAQFormGroup">
+      <app-sub-header>
+        <ng-container title>
+          {{subheaderTitle}}
+        </ng-container>
+        <ng-container text>
+          {{subheaderText}}
+        </ng-container>
+      </app-sub-header>
+      <div class="w-75">
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="questionTR"
+            [ngClass]="{ 'is-invalid': f['questionTR'].touched && addFAQFormGroup.get('questionTR')?.invalid }">
+          <label for="questionTR" class="form-label"
+            [ngClass]="{ 'invalid-label': f['questionTR'].touched && addFAQFormGroup.get('questionTR')?.invalid }">Soru
+          </label>
+          <div [ngClass]="{ 'invalid-feedback-shown': f['questionTR'].touched && f['questionTR'].errors?.['required'] }"
+            class="invalid-feedback">Soru girilmelidir.</div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="questionENG"
+            [ngClass]="{ 'is-invalid': f['questionENG'].touched && addFAQFormGroup.get('questionENG')?.invalid }">
+          <label for="questionENG" class="form-label"
+            [ngClass]="{ 'invalid-label': f['questionENG'].touched && addFAQFormGroup.get('questionENG')?.invalid }">Soru
+            (İngilizce)</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['questionENG'].touched && f['questionENG'].errors?.['required'] }"
+            class="invalid-feedback">Soru (İngilizce) girilmelidir.</div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="questionARB"
+            [ngClass]="{ 'is-invalid': f['questionARB'].touched && addFAQFormGroup.get('questionARB')?.invalid }">
+          <label for="questionARB" class="form-label"
+            [ngClass]="{ 'invalid-label': f['questionARB'].touched && addFAQFormGroup.get('questionARB')?.invalid }">Soru
+            (Arapça)</label>
+          <div
+            [ngClass]="{ 'invalid-feedback-shown': f['questionARB'].touched && f['questionARB'].errors?.['required'] }"
+            class="invalid-feedback">Soru (Arapça) girilmelidir.</div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="answerTR"
+            [ngClass]="{ 'is-invalid': f['answerTR'].touched && addFAQFormGroup.get('answerTR')?.invalid }">
+          <label for="answerTR" class="form-label"
+            [ngClass]="{ 'invalid-label': f['answerTR'].touched && addFAQFormGroup.get('answerTR')?.invalid }">Kategori
+            Adı (Arapça)</label>
+          <div [ngClass]="{ 'invalid-feedback-shown': f['answerTR'].touched && f['answerTR'].errors?.['required'] }"
+            class="invalid-feedback">Cevap girilmelidir.</div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="answerENG"
+            [ngClass]="{ 'is-invalid': f['answerENG'].touched && addFAQFormGroup.get('answerENG')?.invalid }">
+          <label for="answerENG" class="form-label"
+            [ngClass]="{ 'invalid-label': f['answerENG'].touched && addFAQFormGroup.get('answerENG')?.invalid }">Cevap
+            (İngilizce)</label>
+          <div [ngClass]="{ 'invalid-feedback-shown': f['answerENG'].touched && f['answerENG'].errors?.['required'] }"
+            class="invalid-feedback">Cevap (İngilizce) girilmelidir.</div>
+        </div>
+        <div class="form-column input-box input-bg-white my-4">
+          <input type="text" formControlName="answerARB"
+            [ngClass]="{ 'is-invalid': f['answerARB'].touched && addFAQFormGroup.get('answerARB')?.invalid }">
+          <label for="answerARB" class="form-label"
+            [ngClass]="{ 'invalid-label': f['answerARB'].touched && addFAQFormGroup.get('answerARB')?.invalid }">Cevap
+            (Arapça)</label>
+          <div [ngClass]="{ 'invalid-feedback-shown': f['answerARB'].touched && f['answerARB'].errors?.['required'] }"
+            class="invalid-feedback">Cevap (Arapça) girilmelidir.</div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="text-center">
+    <button [disabled]="addFAQFormGroup.invalid" (click)="nextButton()"
+      class="button button--primary mb-3">{{nextButtonText}}</button>
+  </div>
+</app-box>

@@ -1,3 +1,15 @@
+.form-group {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  margin: auto;
+
+  @include respond(phone) {
+    width: 100%;
+  }
+}
+
 .mat-mdc-checkbox label {
   color: var(--color-text);
   font-size: $default-font-size;

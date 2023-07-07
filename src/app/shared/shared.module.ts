@@ -5,17 +5,20 @@ import { RouterModule } from '@angular/router';
 import { NavigationComponent } from '../components/navigation/navigation.component';
 import { DashboardLayoutComponent } from '../layouts/dashboard-layout/dashboard-layout.component';
 import { BoxComponent } from '../components/box/box.component';
+import { SubHeaderComponent } from '../components/sub-header/sub-header.component';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
     NavigationComponent,
     DashboardLayoutComponent,
     BoxComponent,
+    SubHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatCheckboxModule,
     MatTreeModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    SubHeaderComponent,
   ]
 })
 export class SharedModule { }

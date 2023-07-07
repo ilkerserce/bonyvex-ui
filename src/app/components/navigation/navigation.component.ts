@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,19 +9,21 @@ import { Component } from '@angular/core';
 export class NavigationComponent {
   isMenuExpanded: boolean = false; // Menü genişletme durumunu takip eden bir değişken
 
+  constructor(private userService: UserService) { }
+
   // Bağlantı tıklama işlemini işleyen işlev
   handleLinkClick(event: Event) {
     if (!this.isMenuExpanded) {
-      event.preventDefault(); // Bağlantının varsayılan davranışını engelle
-      // Bağlantıya tıklandığında yapılması gereken işlemleri burada gerçekleştir
-      // Örneğin: Router ile yönlendirme yapabilirsiniz
+      event.preventDefault();
     }
-    // Menüyü kapatma işlemini gerçekleştir
     this.toggleMenu();
   }
 
-  // Menüyü genişletme/daraltma işlemini gerçekleştiren işlev
   toggleMenu() {
     this.isMenuExpanded = !this.isMenuExpanded;
+  }
+
+  logout() {
+    this.userService.logout();
   }
 }

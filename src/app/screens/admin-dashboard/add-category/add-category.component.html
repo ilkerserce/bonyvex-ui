@@ -2,13 +2,14 @@
 <app-box>
   <div class="p-5">
     <form [formGroup]="addCategoryFormGroup">
-      <div class="row">
-        <div class="col">
-          <h1>Yeni Kategori</h1>
-          <p class="my-3">Yemeklerin bağlı olacağı kategorileri veya ana kategorilerin içinde alt kategori oluşturmak
-            için aşağıdaki alanları doldurmanız gerekmektedir.</p>
-        </div>
-      </div>
+      <app-sub-header>
+        <ng-container title>
+          {{subheaderTitle}}
+        </ng-container>
+        <ng-container text>
+          {{subheaderText}}
+        </ng-container>
+      </app-sub-header>
       <div class="w-75">
         <div class="form-column input-box input-bg-white my-4">
           <input type="text" formControlName="newCategoryNameTR"

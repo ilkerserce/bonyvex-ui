@@ -18,6 +18,8 @@ export class AddCategoryComponent {
   primaryCategoryList: any;
 
   @Input('id') id: any = null;
+  subheaderTitle = '';
+  subheaderText = '';
 
   nextButtonText = '';
 
@@ -46,9 +48,14 @@ export class AddCategoryComponent {
       this.categoryId = +params['id']; // foodId parametresini alıp number tipine dönüştürüyoruz
       if (this.categoryId) {
         this.nextButtonText = 'Güncelle';
+        this.subheaderTitle = 'İkincil Kategori Düzenleme';
+        this.subheaderText = 'Burada daha önce girilmiş olan kategoriyi düzenleme işlemi yapılmaktadır. Lütfen gerekli alanları eksiksiz bir şekilde doldurun.';
         this.getSubCategoryForm();
       } else {
         this.nextButtonText = 'Oluştur';
+        this.subheaderTitle = 'Yeni İkincil Kategori Ekle';
+        this.subheaderText = 'İkincil kategorileri oluşturmak' +
+          'için aşağıdaki alanları doldurmanız gerekmektedir.';
       }
     })
   }
@@ -90,7 +97,7 @@ export class AddCategoryComponent {
           this.populateLists(res);
         },
         error: err => {
-          this.toastrHandleService.error(err);
+          this.toastrHandleService.error(err.message);
         }
       })
   }
@@ -102,7 +109,7 @@ export class AddCategoryComponent {
 
       },
       error: err => {
-        this.toastrHandleService.error(err);
+        this.toastrHandleService.error(err.message);
       }
     })
   }
@@ -140,7 +147,7 @@ export class AddCategoryComponent {
           this.router.navigate(['/categories']);
         },
         error: err => {
-          this.toastrHandleService.error(err);
+          this.toastrHandleService.error(err.message);
         }
       });
   }
@@ -155,7 +162,7 @@ export class AddCategoryComponent {
 
         },
         error: err => {
-          this.toastrHandleService.error(err.err);
+          this.toastrHandleService.error(err.message);
         }
       });
   }

@@ -99,7 +99,7 @@ export class CategoryListComponent implements OnInit, OnDestroy {
           this.fetchPrimaryCategories();
         },
         error: err => {
-          this.toastrHandleService.error(err)
+          this.toastrHandleService.error(err.message)
         }
       });
   }

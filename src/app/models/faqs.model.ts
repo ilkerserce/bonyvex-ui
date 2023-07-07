@@ -25,6 +25,7 @@ export class EditFAQRequestModel implements IEditFAQRequestModel {
   answerTR: string;
   answerENG: string;
   answerARB: string;
+  faqId: number;
 }
 
 interface IEditFAQRequestModel {
@@ -34,4 +35,5 @@ interface IEditFAQRequestModel {
   answerTR: string;
   answerENG: string;
   answerARB: string;
+  faqId: number;
 }

@@ -5,8 +5,7 @@ import { ToastrHandleService } from 'src/app/services/toastr-handle.service'
 import { AddFoodRequestModel, EditFoodRequestModel } from 'src/app/models/add-food-request.model';
 import { FoodsService } from 'src/app/services/foods.service';
 import { AuthorizationModel } from 'src/app/models/login.model';
-import { DropdownListModel } from 'src/app/models/dropdown-list.model';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
@@ -25,6 +24,9 @@ export class AddFoodComponent {
   subCategoryList: any;
 
   nextButtonText = '';
+  subheaderTitle = '';
+  subheaderText = '';
+
   addFoodFormGroup: FormGroup;
   foodId!: number;
   data: any;
@@ -56,9 +58,13 @@ export class AddFoodComponent {
       this.foodId = +params['id']; // foodId parametresini alıp number tipine dönüştürüyoruz
       if (this.foodId) {
         this.nextButtonText = 'Güncelle';
+        this.subheaderTitle = 'Yemek Bilgileri Düzenleme';
+        this.subheaderText = 'Burada daha önce girilmiş olan yemeğin düzenleme işlemi yapılmaktadır. Lütfen gerekli alanları eksiksiz bir şekilde doldurun.';
         this.getFoodForm();
       } else {
         this.nextButtonText = 'Oluştur';
+        this.subheaderTitle = 'Yeni Yemek Ekle';
+        this.subheaderText = 'Yemek menüsüne yemek eklemek için aşağıdaki gerekli alanları doldurmanız gerekmektedir.';
       }
     })
   }
@@ -119,15 +125,17 @@ export class AddFoodComponent {
   }
 
   getFoodForm() {
-    this.foodsService.getFoodForm(this.foodId).pipe(takeUntil(this.destroy$)).subscribe({
-      next: res => {
-        console.log(res);
-        this.populateForm(res);
-      },
-      error: err => {
+    this.foodsService.getFoodForm(this.foodId)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: res => {
+          console.log(res);
+          this.populateForm(res);
+        },
+        error: err => {
 
-      }
-    })
+        }
+      })
   }
 
   createAddRequestModel() {
@@ -169,7 +177,6 @@ export class AddFoodComponent {
     return requestModel;
   }
 
-
   addFood() {
     this.foodsService.addFood(this.createAddRequestModel())
       .pipe(takeUntil(this.destroy$))
@@ -178,7 +185,7 @@ export class AddFoodComponent {
           this.toastrHandleService.success("Belirtilen yemek eklendi.")
         },
         error: err => {
-          this.toastrHandleService.error(err)
+          this.toastrHandleService.error(err.message)
         }
       });
   }
@@ -192,7 +199,7 @@ export class AddFoodComponent {
           this.router.navigate(['/foods']);
         },
         error: err => {
-          this.toastrHandleService.error()
+          this.toastrHandleService.error(err.message)
         }
       });
   }
@@ -205,7 +212,7 @@ export class AddFoodComponent {
           this.toastrHandleService.success("Belirtilen yemek silindi.")
         },
         error: err => {
-          this.toastrHandleService.error(err)
+          this.toastrHandleService.error(err.message)
         }
       });
   }

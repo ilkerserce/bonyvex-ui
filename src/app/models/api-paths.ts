@@ -26,6 +26,6 @@ export enum ApiPaths {
   GetFAQs = "faqs/getFaqs",
   GetFAQForm = "faqs/getFaqForm",
   AddFAQ = "faqs/add",
-  EditFAQ = "faq/edit",
+  EditFAQ = "faqs/edit",
   DeleteFAQ = "faqs/deleteFaq",
 }

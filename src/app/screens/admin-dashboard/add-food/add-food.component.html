@@ -1,13 +1,15 @@
 <app-box>
-  <div class="p-5">
-    <form [formGroup]="addFoodFormGroup">
-      <div class="row">
-        <div class="col">
-          <h1>Yeni Yemek Ekle</h1>
-          <p class="my-3">Yemek menüsüne yemek eklemek için aşağıdaki gerekli alanları doldurmanız gerekmektedir.</p>
-        </div>
-      </div>
-      <div class="w-75">
+  <div class="p-2 p-md-5">
+    <app-sub-header>
+      <ng-container title>
+        {{subheaderTitle}}
+      </ng-container>
+      <ng-container text>
+        {{subheaderText}}
+      </ng-container>
+    </app-sub-header>
+    <form class="d-flex justify-content-center" [formGroup]="addFoodFormGroup">
+      <div class="form-group">
         <div class="form-column input-box input-bg-white my-4">
           <input type="text" name="foodNameTR" formControlName="foodNameTR"
             [ngClass]="{ 'is-invalid': f['foodNameTR'].touched && addFoodFormGroup.get('foodNameTR')?.invalid }">

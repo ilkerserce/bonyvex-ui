@@ -4,6 +4,9 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import { ApiPaths } from '../models/api-paths';
 import { LoginRequestModel } from '../models/login.model';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,7 @@ export class UserService {
   private baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient,
-    private toastrService: ToastrService) { };
+    private router: Router) { };
 
   getUserLoginInfo() {
     return JSON.parse(sessionStorage.getItem('loggedIn') || 'false');
@@ -20,6 +23,7 @@ export class UserService {
 
   logout() {
     sessionStorage.removeItem('loggedIn');
+    this.router.navigate(['/login']);
   }
 
   login(data: any) {
