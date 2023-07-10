@@ -23,6 +23,13 @@ export class NavigationComponent {
     this.isMenuExpanded = !this.isMenuExpanded;
   }
 
+  closeMenu(): void {
+    const checkbox = document.querySelector('.navigation__checkbox') as HTMLInputElement;
+    if (checkbox && checkbox.checked) {
+      checkbox.checked = false;
+    }
+  }
+
   logout() {
     this.userService.logout();
   }

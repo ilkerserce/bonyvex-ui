@@ -12,22 +12,29 @@
 
   <nav class="navigation__nav">
     <ul class="navigation__list">
-      <li class="navigation__item"><a routerLink="/foods" class="navigation__link"><span>01</span>Yemek Menüsü</a>
+      <li class="navigation__item"><a routerLink="/admin/foods" (click)="closeMenu()"
+          class="navigation__link"><span>01</span>Yemek Menüsü</a>
       </li>
-      <li class="navigation__item"><a routerLink="/foods/add" class="navigation__link"><span>02</span>Menüye Yemek
+      <li class="navigation__item"><a routerLink="/admin/foods/add" (click)="closeMenu()" class="
+          navigation__link"><span>02</span>Menüye Yemek
           Ekle</a>
       </li>
-      <li class="navigation__item"><a routerLink="/categories" class="navigation__link"><span>03</span>Kategoriler</a>
+      <li class="navigation__item"><a routerLink="/admin/categories" (click)="closeMenu()"
+          class="navigation__link"><span>03</span>Kategoriler</a>
       </li>
-      <li class="navigation__item"><a routerLink="/categories/add" class="navigation__link"><span>04</span>Kategori
+      <li class="navigation__item"><a routerLink="/admin/categories/add" (click)="closeMenu()"
+          class="navigation__link"><span>04</span>Kategori
           Ekle</a>
       </li>
-      <li class="navigation__item"><a routerLink="/faqs" class="navigation__link"><span>05</span>SSS</a>
+      <li class="navigation__item"><a routerLink="/admin/faqs" (click)="closeMenu()"
+          class="navigation__link"><span>05</span>SSS</a>
       </li>
-      <li class="navigation__item"><a routerLink="/faqs/add" class="navigation__link"><span>06</span>SSS
+      <li class="navigation__item"><a routerLink="/admin/faqs/add" (click)="closeMenu()"
+          class="navigation__link"><span>06</span>SSS
           Ekle</a>
       </li>
-      <li class="navigation__item" (click)="logout()"><a routerLink="/faqs/add" class="navigation__link"><span>07</span>Çıkış
+      <li class="navigation__item" (click)="logout()"><a routerLink="/faqs/add"
+          class="navigation__link"><span>07</span>Çıkış
           Yap</a>
       </li>
     </ul>
