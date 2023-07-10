@@ -110,6 +110,7 @@
         <div class="form-column input-box input-bg-white my-4">
           <select formControlName="foodPrimaryCategory"
             [ngClass]="{ 'is-invalid': f['foodPrimaryCategory'].touched && addFoodFormGroup.get('foodPrimaryCategory')?.invalid }">
+            <option [ngValue]="null">Seçiniz</option>
             <option *ngFor="let primaryCategory of primaryCategoryList" [value]="primaryCategory.id">
               {{primaryCategory.nameTR}}</option>
           </select>
@@ -124,6 +125,7 @@
         <div class="form-column input-box input-bg-white my-4">
           <select formControlName="foodSubCategory"
             [ngClass]="{ 'is-invalid': f['foodSubCategory'].touched && addFoodFormGroup.get('foodSubCategory')?.invalid }">
+            <option [ngValue]="null">Seçiniz</option>
             <option *ngFor="let subcategory of subCategoryList" [value]="subcategory.id">{{subcategory.nameTR}}</option>
           </select>
           <label for="foodSubCategory" class="form-label" foodImageUrl

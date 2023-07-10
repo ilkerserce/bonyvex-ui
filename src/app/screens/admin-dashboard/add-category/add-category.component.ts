@@ -153,7 +153,7 @@ export class AddCategoryComponent {
   }
 
   editSubCategory() {
-    this.categoriesService.editSubCategory(this.categoryId, this.createEditRequestModel())
+    this.categoriesService.editSubCategory(this.createEditRequestModel())
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {

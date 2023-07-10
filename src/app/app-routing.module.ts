@@ -8,12 +8,15 @@ import { CategoryListComponent } from './screens/admin-dashboard/category-list/c
 import { FaqAddUpdateComponent } from './screens/admin-dashboard/faq-add-update/faq-add-update.component';
 import { FaqListComponent } from './screens/admin-dashboard/faq-list/faq-list.component';
 import { FoodMenuComponent } from './screens/admin-dashboard/food-menu/food-menu.component';
+import { FaqComponent } from './screens/customer-screens/faq/faq.component';
+import { MenuComponent } from './screens/customer-screens/menu/menu.component';
+import { WelcomeComponent } from './screens/customer-screens/welcome/welcome.component';
 import { LoginComponent } from './screens/login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'admin/foods', pathMatch: 'full' },
   {
-    path: '', component: DashboardLayoutComponent,
+    path: 'admin', component: DashboardLayoutComponent,
     children: [
       { path: 'foods', component: FoodMenuComponent },
       { path: 'foods/add', component: AddFoodComponent },
@@ -27,6 +30,9 @@ const routes: Routes = [
     ],
     canActivate: [AuthGuard]
   },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'menu', component: MenuComponent },
+  { path: 'faq', component: FaqComponent },
   { path: 'login', component: LoginComponent },
 ];
 

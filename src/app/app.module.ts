@@ -11,11 +11,11 @@ import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomerModule } from './screens/customer-screens/customer.module';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }),
     SharedModule,
     AdminDashboardModule,
+    CustomerModule,
     BrowserAnimationsModule,
   ],
   providers: [],

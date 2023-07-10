@@ -11,6 +11,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { BrandingComponent } from '../components/branding/branding.component';
+import { MobileNavbarComponent } from '../components/mobile-navbar/mobile-navbar.component';
+import { MobileHeaderCategoriesComponent } from '../components/mobile-header-categories/mobile-header-categories.component';
+import { MenuContentComponent } from '../components/menu-content/menu-content.component';
 
 
 @NgModule({
@@ -19,6 +23,10 @@ import { MatButtonModule } from '@angular/material/button';
     DashboardLayoutComponent,
     BoxComponent,
     SubHeaderComponent,
+    BrandingComponent,
+    MobileNavbarComponent,
+    MobileHeaderCategoriesComponent,
+    MenuContentComponent,
   ],
   imports: [
     CommonModule,
@@ -37,6 +45,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatButtonModule,
     SubHeaderComponent,
+    BrandingComponent,
+    MobileNavbarComponent,
+    MobileHeaderCategoriesComponent,
+    MenuContentComponent,
   ]
 })
 export class SharedModule { }

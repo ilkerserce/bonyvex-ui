@@ -128,7 +128,7 @@ export class FaqAddUpdateComponent {
   }
 
   editFAQ() {
-    this.faqsService.editFAQ(this.faqId, this.createEditFAQRequestModel())
+    this.faqsService.editFAQ(this.createEditFAQRequestModel())
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {

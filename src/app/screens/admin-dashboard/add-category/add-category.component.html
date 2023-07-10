@@ -1,7 +1,7 @@
 <!-- add-category.component.html -->
 <app-box>
   <div class="p-5">
-    <form [formGroup]="addCategoryFormGroup">
+    <form class="form-group" [formGroup]="addCategoryFormGroup">
       <app-sub-header>
         <ng-container title>
           {{subheaderTitle}}
@@ -10,7 +10,7 @@
           {{subheaderText}}
         </ng-container>
       </app-sub-header>
-      <div class="w-75">
+      <div>
         <div class="form-column input-box input-bg-white my-4">
           <input type="text" formControlName="newCategoryNameTR"
             [ngClass]="{ 'is-invalid': f['newCategoryNameTR'].touched && addCategoryFormGroup.get('newCategoryNameTR')?.invalid }">

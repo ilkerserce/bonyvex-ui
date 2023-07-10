@@ -44,11 +44,11 @@ export class AddFoodComponent {
       foodDescriptionTR: ['', Validators.required],
       foodDescriptionENG: ['', Validators.required],
       foodDescriptionARB: ['', Validators.required],
-      foodPrice: ['', Validators.required],
+      foodPrice: [null, Validators.required],
       foodImageUrl: [''],
       foodVideoUrl: [''],
-      foodPrimaryCategory: ['', Validators.required],
-      foodSubCategory: ['', Validators.required]
+      foodPrimaryCategory: [null, Validators.required],
+      foodSubCategory: [null, Validators.required]
     });
   }
 
@@ -115,7 +115,6 @@ export class AddFoodComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
-          console.log(res);
           this.populateLists(res);
         },
         error: err => {
@@ -129,7 +128,6 @@ export class AddFoodComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
-          console.log(res);
           this.populateForm(res);
         },
         error: err => {
@@ -150,8 +148,8 @@ export class AddFoodComponent {
       price: +addFoodFormGroup.foodPrice,
       imageUrl: addFoodFormGroup.foodImageUrl,
       videoUrl: addFoodFormGroup.foodVideoUrl,
-      primaryCategory: addFoodFormGroup.foodPrimaryCategory,
-      subCategory: addFoodFormGroup.foodSubCategory,
+      primaryCategory: +addFoodFormGroup.foodPrimaryCategory,
+      subCategory: +addFoodFormGroup.foodSubCategory,
     };
 
     return requestModel;
@@ -223,6 +221,6 @@ export class AddFoodComponent {
     } else {
       this.addFood()
     }
-    this.router.navigate(['/foods']);
+    // this.router.navigate(['/foods']);
   }
 }

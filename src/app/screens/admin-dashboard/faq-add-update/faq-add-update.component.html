@@ -1,7 +1,7 @@
 <!-- add-category.component.html -->
 <app-box>
   <div class="p-5">
-    <form [formGroup]="addFAQFormGroup">
+    <form class="form-group" [formGroup]="addFAQFormGroup">
       <app-sub-header>
         <ng-container title>
           {{subheaderTitle}}
@@ -10,7 +10,7 @@
           {{subheaderText}}
         </ng-container>
       </app-sub-header>
-      <div class="w-75">
+      <div>
         <div class="form-column input-box input-bg-white my-4">
           <input type="text" formControlName="questionTR"
             [ngClass]="{ 'is-invalid': f['questionTR'].touched && addFAQFormGroup.get('questionTR')?.invalid }">
@@ -44,8 +44,7 @@
           <input type="text" formControlName="answerTR"
             [ngClass]="{ 'is-invalid': f['answerTR'].touched && addFAQFormGroup.get('answerTR')?.invalid }">
           <label for="answerTR" class="form-label"
-            [ngClass]="{ 'invalid-label': f['answerTR'].touched && addFAQFormGroup.get('answerTR')?.invalid }">Kategori
-            Adı (Arapça)</label>
+            [ngClass]="{ 'invalid-label': f['answerTR'].touched && addFAQFormGroup.get('answerTR')?.invalid }">Cevap</label>
           <div [ngClass]="{ 'invalid-feedback-shown': f['answerTR'].touched && f['answerTR'].errors?.['required'] }"
             class="invalid-feedback">Cevap girilmelidir.</div>
         </div>

@@ -1,0 +1,32 @@
+<app-box>
+  <app-sub-header>
+    <ng-container title>
+      Sıkça Sorulan Sorular Listesi
+    </ng-container>
+    <ng-container text>
+      Burası sıkça sorulan soruların eklenebileceği, düzenlenebileceği ve silinebileceği ekrandır. İstediğiniz işlemi
+      yapmadan önce akordiyona tıklayarak bir soru ile etkileşime girmeniz gerekmektedir. Ardından ilgili ekranda
+      Türkçe, İngilizce, Arapça olmak üzere 3 farklı dilde soru cevap girebilirsiniz. Kullanıcı dil tercihi yaptığında
+      kendi ana dilinde soru ve cevapları görebiliyor olacaktır.
+      <hr>
+      <br>Not: Silinen sorular hiçbir şekilde geri getirelemez. Lütfen silme işleminde dikkatli olun.
+    </ng-container>
+  </app-sub-header>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item" *ngFor="let faq of faqs">
+      <h2 class="accordion-header" [id]="'faqTitle' + faq.id">
+        <button class="accordion-button collapsed py-4" type="button" data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#faqNumber' + faq.id" aria-expanded="false"
+          [attr.aria-controls]="'#faqNumber' + faq.id">
+          {{faq.questionTR}}
+        </button>
+      </h2>
+      <div [id]="'faqNumber' + faq.id" class="accordion-collapse collapse" [attr.aria-labelledby]="'faqTitle' + faq.id"
+        [attr.data-bs-parent]="'#faqAccordion'">
+        <div class="accordion-body">
+          {{faq.answerTR}}
+        </div>
+      </div>
+    </div>
+  </div>
+</app-box>

@@ -44,12 +44,12 @@ export class LoginComponent {
           let data = res;
           if (res == true) {
             sessionStorage.setItem('loggedIn', 'true')
-            this.router.navigate(['/foods']);
+            this.router.navigate(['/admin/foods']);
             this.toastrService.success('Giriş Başarılı');
           }
         },
         error: err => {
-          this.toastrService.error(err.error);
+          this.toastrService.error(err.message);
         }
       });
     }
