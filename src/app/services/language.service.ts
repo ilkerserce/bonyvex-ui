@@ -8,7 +8,7 @@ export class LanguageService {
   private languageSubject: BehaviorSubject<string> = new BehaviorSubject<string>('TR');
   public language$: Observable<string> = this.languageSubject.asObservable();
 
-  constructor() {}
+  constructor() { }
 
   public getLanguage(): Observable<string> {
     return this.languageSubject.asObservable();

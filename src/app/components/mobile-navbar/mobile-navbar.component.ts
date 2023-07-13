@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { LanguageService } from 'src/app/services/language.service';
 
@@ -9,9 +10,24 @@ import { LanguageService } from 'src/app/services/language.service';
 })
 export class MobileNavbarComponent {
   currentLanguage$: Observable<string>;
+  languageSelectionForm: FormGroup;
+  @ViewChild('languageSelection') languageSelection: ElementRef;
 
-  constructor(private languageService: LanguageService) {
+  constructor(private languageService: LanguageService,
+    private fb: FormBuilder,) {
     this.currentLanguage$ = this.languageService.getLanguage();
+    this.languageSelectionForm = this.fb.group({
+      language: '',
+    });
+  }
+
+  ngOnInit(): void {
+
+    this.currentLanguage$.subscribe(languageServiceValue => {
+      this.languageSelectionForm.patchValue({
+        language: languageServiceValue,
+      })
+    })
   }
 
   changeLanguage(event: Event) {

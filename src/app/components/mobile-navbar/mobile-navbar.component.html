@@ -3,28 +3,31 @@
     <ul class="row">
       <li class="nav-item col">
         <div class="row justify-content-between">
-          <div class="col">
-            <select class="form-select form-select-lg text-center" (change)="changeLanguage($event)">
-              <option value="TR">
-                <div class="flag-icon">
-                  <img src="assets/icons/TR.png" alt="TR Flag">
-                </div>
-                TR
-              </option>
-              <option value="ENG">
-                <div class="flag-icon">
-                  <img src="assets/icons/ENG.png" alt="ENG Flag">
-                </div>
-                ENG
-              </option>
-              <option value="ARB">
-                <div class="flag-icon">
-                  <img src="assets/icons/ARB.png" alt="ARB Flag">
-                </div>
-                ARB
-              </option>
-            </select>
-          </div>
+          <form [formGroup]="languageSelectionForm">
+            <div class="col">
+              <select #languageSelection formControlName="language" class="form-select form-select-lg text-center"
+                (change)="changeLanguage($event)">
+                <option value="TR">
+                  <div class="flag-icon">
+                    <img src="assets/icons/TR.png" alt="TR Flag">
+                  </div>
+                  TR
+                </option>
+                <option value="ENG">
+                  <div class="flag-icon">
+                    <img src="assets/icons/ENG.png" alt="ENG Flag">
+                  </div>
+                  ENG
+                </option>
+                <option value="ARB">
+                  <div class="flag-icon">
+                    <img src="assets/icons/ARB.png" alt="ARB Flag">
+                  </div>
+                  ARB
+                </option>
+              </select>
+            </div>
+          </form>
         </div>
         <div [ngSwitch]="currentLanguage$ | async">
           <span *ngSwitchCase="'TR'">Türkçe</span>

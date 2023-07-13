@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'; // ReactiveFormsModule'ı içe aktarın
 
 import { NavigationComponent } from '../components/navigation/navigation.component';
 import { DashboardLayoutComponent } from '../layouts/dashboard-layout/dashboard-layout.component';
@@ -35,7 +36,8 @@ import { MenuContentComponent } from '../components/menu-content/menu-content.co
     MatCheckboxModule,
     MatTreeModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule,
   ],
   exports: [
     NavigationComponent,
