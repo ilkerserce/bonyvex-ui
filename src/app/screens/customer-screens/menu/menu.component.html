@@ -1,10 +1,46 @@
-<app-mobile-header-categories></app-mobile-header-categories>
-<main>
-  <div class="test">Test</div>
-  <div class="test">Test</div>
-  <div class="test">Test</div>
-  <div class="test">Test</div>
-  <div class="test">Test</div>
-  <div class="test">Test</div>
+<header class="app-mobile-header-categories">
+  <nav>
+    <ul>
+      <li *ngFor="let primaryCategory of primaryCategoryList">
+        <a (click)="getSubCategories(primaryCategory.id)">
+          <i class="bi bi-house"></i>
+          <span>{{primaryCategory.nameTR}}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main class="menu" style="margin-bottom: 100px">
+  <div *ngFor="let subCategory of subCategories">
+    <hr>
+    <ng-container [ngSwitch]="currentLanguage$ | async">
+      <ng-container *ngSwitchCase="'TR'">
+        <h3 class="heading-sub-category">{{ subCategory.nameTR }}</h3>
+      </ng-container>
+      <ng-container *ngSwitchCase="'ENG'">
+        <h3 class="heading-sub-category">{{ subCategory.nameENG }}</h3>
+      </ng-container>
+      <ng-container *ngSwitchCase="'ARB'">
+        <h3 class="heading-sub-category">{{ subCategory.nameARB }}</h3>
+      </ng-container>
+    </ng-container>
+    <hr>
+    <div *ngFor="let food of subCategory.foods" class="menu-item d-flex align-items-center py-4">
+      <ng-container [ngSwitch]="currentLanguage$ | async">
+        <ng-container *ngSwitchCase="'TR'">
+          <div class="col-9 col-md-6 text-start px-3">{{ food.nameTR }}</div>
+          <div class="col-3 col-md-6 border-start text-end px-3">{{ food.price }}₺</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'ENG'">
+          <div class="col-9 col-md-6 text-start px-3">{{ food.nameENG }}</div>
+          <div class="col-3 col-md-6 border-start text-end px-3">{{ food.price }}₺</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'ARB'">
+          <div class="col-3 col-md-6 text-end px-3 text-end">{{ food.price }}₺</div>
+          <div class="col-9 col-md-6 border-start text-end px-3">{{ food.nameARB }}</div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
 </main>
 <app-mobile-navbar></app-mobile-navbar>

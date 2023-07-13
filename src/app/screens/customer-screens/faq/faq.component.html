@@ -1,15 +1,25 @@
 <app-box>
   <app-sub-header>
     <ng-container title>
-      Sıkça Sorulan Sorular Listesi
+      <ng-container [ngSwitch]="currentLanguage$ | async">
+        <ng-container *ngSwitchCase="'TR'">Sıkça Sorulan Sorular Listesi</ng-container>
+        <ng-container *ngSwitchCase="'ENG'">Frequently Asked Questions List </ng-container>
+        <ng-container *ngSwitchCase="'ARB'">قائمة الأسئلة المتداولة.</ng-container>
+      </ng-container>
     </ng-container>
     <ng-container text>
-      Burası sıkça sorulan soruların eklenebileceği, düzenlenebileceği ve silinebileceği ekrandır. İstediğiniz işlemi
-      yapmadan önce akordiyona tıklayarak bir soru ile etkileşime girmeniz gerekmektedir. Ardından ilgili ekranda
-      Türkçe, İngilizce, Arapça olmak üzere 3 farklı dilde soru cevap girebilirsiniz. Kullanıcı dil tercihi yaptığında
-      kendi ana dilinde soru ve cevapları görebiliyor olacaktır.
-      <hr>
-      <br>Not: Silinen sorular hiçbir şekilde geri getirelemez. Lütfen silme işleminde dikkatli olun.
+      <ng-container [ngSwitch]="currentLanguage$ | async">
+        <ng-container *ngSwitchCase="'TR'"> Bu sayfada sıkça sorulan sorulara cevap bulabilirsiniz. Sormak istediğiniz
+          sorunun cevabı bu sayfada yoksa
+          WhatsApp üzerinden bile ulaşabilirsiniz.</ng-container>
+        <ng-container *ngSwitchCase="'ENG'"> On this page you can find answers to frequently asked questions. you want
+          to ask
+          If the answer is not on this page
+          You can even reach us via WhatsApp.</ng-container>
+        <ng-container *ngSwitchCase="'ARB'"> في هذه الصفحة يمكنك العثور على إجابات للأسئلة المتداولة. تريد أن تسأل
+          إذا لم تكن الإجابة على هذه الصفحة
+          يمكنك حتى الوصول إلينا عبر WhatsApp.</ng-container>
+      </ng-container>
     </ng-container>
   </app-sub-header>
   <div class="accordion" id="faqAccordion">
@@ -18,15 +28,25 @@
         <button class="accordion-button collapsed py-4" type="button" data-bs-toggle="collapse"
           [attr.data-bs-target]="'#faqNumber' + faq.id" aria-expanded="false"
           [attr.aria-controls]="'#faqNumber' + faq.id">
-          {{faq.questionTR}}
+          <ng-container [ngSwitch]="currentLanguage$ | async">
+            <ng-container *ngSwitchCase="'TR'"> {{faq.questionTR}}</ng-container>
+            <ng-container *ngSwitchCase="'ENG'"> {{faq.questionENG}}</ng-container>
+            <ng-container *ngSwitchCase="'ARB'"> {{faq.questionARB}}</ng-container>
+          </ng-container>
         </button>
       </h2>
       <div [id]="'faqNumber' + faq.id" class="accordion-collapse collapse" [attr.aria-labelledby]="'faqTitle' + faq.id"
         [attr.data-bs-parent]="'#faqAccordion'">
         <div class="accordion-body">
-          {{faq.answerTR}}
+          <ng-container [ngSwitch]="currentLanguage$ | async">
+            <ng-container *ngSwitchCase="'TR'"> {{faq.answerTR}}</ng-container>
+            <ng-container *ngSwitchCase="'ENG'"> {{faq.answerENG}}</ng-container>
+            <ng-container *ngSwitchCase="'ARB'"> {{faq.answerARB}}</ng-container>
+          </ng-container>
+
         </div>
       </div>
     </div>
   </div>
 </app-box>
+<app-mobile-navbar></app-mobile-navbar>

@@ -1,0 +1,12 @@
+.menu {
+  overflow-y: auto;
+}
+
+.menu-item {
+  font-size: 140%;
+
+  & .divider {
+    padding: 0 1rem 0 1rem;
+    border-bottom: 1px solid rgb(51, 46, 46);
+  }
+}

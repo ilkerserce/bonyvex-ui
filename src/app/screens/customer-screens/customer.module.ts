@@ -13,6 +13,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SharedModule
+  ],
+  exports: [
+    WelcomeComponent,
+    MenuComponent,
+    FaqComponent,
   ]
 })
 export class CustomerModule { }

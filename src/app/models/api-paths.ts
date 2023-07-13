@@ -22,7 +22,9 @@ export enum ApiPaths {
   DeleteSubCategory = 'sub-categories/delete-sub-category.php',
   EditSubCategory = 'sub-categories/edit-sub-category.php',
   GetSubCategoryForm = 'sub-categories/get-sub-category-form.php',
+  GetAllSubCategories = 'sub-categories/get-sub-categories.php',
   GetSubCategories = 'sub-categories/get-sub-categories.php',
+
 
   //FAQ
   AddFAQ = "faqs/add-faq.php",

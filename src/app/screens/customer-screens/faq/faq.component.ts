@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { FaqsService } from 'src/app/services/faqs.service';
 import { ToastrHandleService } from 'src/app/services/toastr-handle.service';
 import { Router } from '@angular/router';
+import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   templateUrl: './faq.component.html',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class FaqComponent {
   private destroy$: Subject<boolean> = new Subject<boolean>();
+  currentLanguage$: Observable<string>;
 
   faqs: any;
 
@@ -17,9 +19,10 @@ export class FaqComponent {
     private faqService: FaqsService,
     private toastrHandleService: ToastrHandleService,
     private router: Router,
-    private faqsService: FaqsService
+    private faqsService: FaqsService,
+    private languageService: LanguageService
   ) {
-
+    this.currentLanguage$ = this.languageService.getLanguage();
   }
 
   ngOnInit(): void {

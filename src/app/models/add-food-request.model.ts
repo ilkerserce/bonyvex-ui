@@ -8,7 +8,6 @@ export class AddFoodRequestModel implements IAddFoodRequestModel {
   price: number;
   imageUrl?: string;
   videoUrl?: string;
-  primaryCategory: number;
   subCategory: number;
 }
 
@@ -22,7 +21,6 @@ interface IAddFoodRequestModel {
   price: number;
   imageUrl?: string;
   videoUrl?: string;
-  primaryCategory: number;
   subCategory: number;
 }
 
@@ -37,7 +35,6 @@ export class EditFoodRequestModel implements IEditFoodRequestModel {
   price: number;
   imageUrl?: string;
   videoUrl?: string;
-  primaryCategory: number;
   subCategory: number;
 }
 
@@ -52,6 +49,5 @@ interface IEditFoodRequestModel {
   price: number;
   imageUrl?: string;
   videoUrl?: string;
-  primaryCategory: number;
   subCategory: number;
 }

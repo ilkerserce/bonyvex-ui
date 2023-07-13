@@ -87,7 +87,7 @@ export class CategoryListComponent implements OnInit, OnDestroy {
   };
 
   editSubCategory(categoryId: number) {
-    this.router.navigate(['categories/edit', categoryId]);
+    this.router.navigate(['admin/categories/edit', categoryId]);
   }
 
   deleteSubCategory(id: number) {

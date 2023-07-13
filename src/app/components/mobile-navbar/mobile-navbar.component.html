@@ -1,22 +1,55 @@
 <footer>
   <nav class="mobile-navbar">
-    <ul>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="bi bi-house"></i>
-          <span>Dil</span>
-        </a>
+    <ul class="row">
+      <li class="nav-item col">
+        <div class="row justify-content-between">
+          <div class="col">
+            <select class="form-select form-select-lg text-center" (change)="changeLanguage($event)">
+              <option value="TR">
+                <div class="flag-icon">
+                  <img src="assets/icons/TR.png" alt="TR Flag">
+                </div>
+                TR
+              </option>
+              <option value="ENG">
+                <div class="flag-icon">
+                  <img src="assets/icons/ENG.png" alt="ENG Flag">
+                </div>
+                ENG
+              </option>
+              <option value="ARB">
+                <div class="flag-icon">
+                  <img src="assets/icons/ARB.png" alt="ARB Flag">
+                </div>
+                ARB
+              </option>
+            </select>
+          </div>
+        </div>
+        <div [ngSwitch]="currentLanguage$ | async">
+          <span *ngSwitchCase="'TR'">Türkçe</span>
+          <span *ngSwitchCase="'ENG'">English</span>
+          <span *ngSwitchCase="'ARB'">العربية</span>
+        </div>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
+      <li class="nav-item col">
+        <a routerLink="/menu" class="nav-link">
           <i class="bi bi-info-circle"></i>
-          <span>Menü</span>
+          <div [ngSwitch]="currentLanguage$ | async">
+            <span *ngSwitchCase="'TR'">Menü</span>
+            <span *ngSwitchCase="'ENG'">Menu</span>
+            <span *ngSwitchCase="'ARB'">قائمة طعام</span>
+          </div>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
+      <li class="nav-item col">
+        <a routerLink="/faq" class="nav-link">
           <i class="bi bi-envelope"></i>
-          <span>SSS</span>
+          <div [ngSwitch]="currentLanguage$ | async">
+            <span *ngSwitchCase="'TR'">SSS</span>
+            <span *ngSwitchCase="'ENG'">FAQ</span>
+            <span *ngSwitchCase="'ARB'">التعليمات</span>
+          </div>
         </a>
       </li>
     </ul>

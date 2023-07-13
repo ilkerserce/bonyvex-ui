@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bonyvex-villa';
+  language = 'TR';
 
   expandMenu(expanded: boolean): void {
     const navigation = document.querySelector('.navigation');

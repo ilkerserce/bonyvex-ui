@@ -4,6 +4,7 @@ import { environment } from '../environments/environment';
 import { ApiPaths } from 'src/app/models/api-paths';
 import { ApiBaseResponseModel } from '../models/api-base-response.model';
 import { AddPrimaryCategoryRequestModel, AddSubCategoryRequestModel, EditPrimaryCategoryRequestModel, EditSubCategoryRequestModel } from '../models/category-request.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,12 @@ export class CategoriesService {
     return this.httpClient.get<ApiBaseResponseModel>(url);
   }
 
-  getSubCategories() {
+  getSubCategories(id: number): Observable<any> {
+    const url = `${this.baseUrl}/${ApiPaths.GetSubCategories}/?id=${id}`;
+    return this.httpClient.get<ApiBaseResponseModel>(url);
+  }
+
+  getAllSubCategories() {
     const url = `${this.baseUrl}/${ApiPaths.GetSubCategories}`;
     return this.httpClient.get<ApiBaseResponseModel>(url);
   }

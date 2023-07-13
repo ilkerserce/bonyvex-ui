@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { NavigationComponent } from '../components/navigation/navigation.component';
 import { DashboardLayoutComponent } from '../layouts/dashboard-layout/dashboard-layout.component';
@@ -16,7 +17,6 @@ import { MobileNavbarComponent } from '../components/mobile-navbar/mobile-navbar
 import { MobileHeaderCategoriesComponent } from '../components/mobile-header-categories/mobile-header-categories.component';
 import { MenuContentComponent } from '../components/menu-content/menu-content.component';
 
-
 @NgModule({
   declarations: [
     NavigationComponent,
@@ -31,6 +31,7 @@ import { MenuContentComponent } from '../components/menu-content/menu-content.co
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     MatCheckboxModule,
     MatTreeModule,
     MatIconModule,

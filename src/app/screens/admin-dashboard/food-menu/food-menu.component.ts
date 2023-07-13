@@ -26,7 +26,7 @@ export class FoodMenuComponent {
   }
 
   editFood(foodId: number) {
-    this.router.navigate(['foods/edit', foodId]);
+    this.router.navigate(['admin/foods/edit', foodId]);
   }
 
   deleteFood(id: number) {

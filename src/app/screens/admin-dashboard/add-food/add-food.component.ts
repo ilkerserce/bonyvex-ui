@@ -20,7 +20,6 @@ export class AddFoodComponent {
   @Input('currentUserAuthorizations') currentUserAuthorizations: AuthorizationModel = new AuthorizationModel();
   @Input('id') id: any = null;
 
-  primaryCategoryList: any;
   subCategoryList: any;
 
   nextButtonText = '';
@@ -41,13 +40,12 @@ export class AddFoodComponent {
       foodNameTR: ['', Validators.required],
       foodNameENG: ['', Validators.required],
       foodNameARB: ['', Validators.required],
-      foodDescriptionTR: ['', Validators.required],
-      foodDescriptionENG: ['', Validators.required],
-      foodDescriptionARB: ['', Validators.required],
+      foodDescriptionTR: [''],
+      foodDescriptionENG: [''],
+      foodDescriptionARB: [''],
       foodPrice: [null, Validators.required],
       foodImageUrl: [''],
       foodVideoUrl: [''],
-      foodPrimaryCategory: [null, Validators.required],
       foodSubCategory: [null, Validators.required]
     });
   }
@@ -84,7 +82,6 @@ export class AddFoodComponent {
       foodPrice: null,
       foodImageUrl: '',
       foodVideoUrl: '',
-      foodPrimaryCategory: null,
       foodSubCategory: null,
     });
   }
@@ -100,13 +97,11 @@ export class AddFoodComponent {
       foodPrice: data.price,
       foodImageUrl: data.imageUrl,
       foodVideoUrl: data.videoUrl,
-      foodPrimaryCategory: data.primaryCategory,
       foodSubCategory: data.subCategory,
     })
   }
 
   private populateLists(data: any) {
-    this.primaryCategoryList = data.primaryCategories;
     this.subCategoryList = data.secondaryCategories;
   }
 
@@ -148,7 +143,6 @@ export class AddFoodComponent {
       price: +addFoodFormGroup.foodPrice,
       imageUrl: addFoodFormGroup.foodImageUrl,
       videoUrl: addFoodFormGroup.foodVideoUrl,
-      primaryCategory: +addFoodFormGroup.foodPrimaryCategory,
       subCategory: +addFoodFormGroup.foodSubCategory,
     };
 
@@ -169,7 +163,6 @@ export class AddFoodComponent {
       price: +addFoodFormGroup.foodPrice,
       imageUrl: addFoodFormGroup.foodImageUrl,
       videoUrl: addFoodFormGroup.foodVideoUrl,
-      primaryCategory: addFoodFormGroup.foodPrimaryCategory,
       subCategory: addFoodFormGroup.foodSubCategory,
     };
     return requestModel;
@@ -221,6 +214,6 @@ export class AddFoodComponent {
     } else {
       this.addFood()
     }
-    // this.router.navigate(['/foods']);
+    // this.router.navigate(['admin/foods']);
   }
 }
