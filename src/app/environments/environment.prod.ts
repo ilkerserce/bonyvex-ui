@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://www.ilker.kim/api',
+  baseUrl: 'https://ornek.sercemenu.com/api',
 };
