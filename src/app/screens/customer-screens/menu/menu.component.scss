@@ -1,13 +1,15 @@
 @import '/src/styles/abstracts/variables';
 @import '/src/styles/abstracts/mixins';
 
+
 .app-mobile-header-categories {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 80px;
-  background-color: #f0f0f0;
-  overflow-x: auto;
+  background-color: $bonyvex-orange;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 
   @include respond(phone) {
     justify-content: normal;
@@ -20,12 +22,13 @@
       padding: 0;
       margin: 0;
       list-style: none;
+      text-align: center;
 
       li {
         display: flex;
         align-items: center;
-        margin: 0 1.5rem;
-        padding: 0 .5rem 0 .5rem;
+        // margin: 0 1.5rem;
+        padding: 0 2.5rem 0 2.5rem;
 
         &:not(:last-child) {
           border-right: 1px solid #333;
@@ -44,7 +47,7 @@
           }
 
           span {
-            padding-right: 2.5rem;
+            padding-left: 1.5rem;
           }
         }
       }
@@ -55,4 +58,29 @@
     -webkit-overflow-scrolling: touch;
     margin-bottom: 100px !important;
   }
+}
+
+.menu-item {
+  &:not(:last-child) {
+    border-bottom: 1px solid #8d8b8b !important;
+  }
+}
+
+.odd {
+  background-color: hsl(0, 0%, 99%);
+}
+
+.even {
+  background-color: hsla(0, 0%, 80%, 0.4);
+}
+
+.food-name {
+  padding: .5rem 0;
+}
+
+a.non-selectable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }

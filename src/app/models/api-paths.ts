@@ -25,7 +25,6 @@ export enum ApiPaths {
   GetAllSubCategories = 'sub-categories/get-sub-categories.php',
   GetSubCategories = 'sub-categories/get-sub-categories.php',
 
-
   //FAQ
   AddFAQ = "faqs/add-faq.php",
   DeleteFAQ = "faqs/delete-faq.php",
@@ -33,4 +32,5 @@ export enum ApiPaths {
   GetFAQs = "faqs/get-faqs.php",
   GetFAQForm = "faqs/get-faq-form.php",
 
+  Upload = "uploads/upload.php",
 }

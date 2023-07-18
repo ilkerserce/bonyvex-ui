@@ -9,13 +9,16 @@ import { LoginComponent } from './screens/login/login.component';
 import { AdminDashboardModule } from './screens/admin-dashboard/admin-dashboard.module';
 import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from "ngx-toastr";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerModule } from './screens/customer-screens/customer.module';
+import { HttpHeadersInterceptor } from './helpers/http-header.interceptor';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,9 @@ import { CustomerModule } from './screens/customer-screens/customer.module';
     CustomerModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpHeadersInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

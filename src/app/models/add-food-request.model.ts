@@ -6,8 +6,7 @@ export class AddFoodRequestModel implements IAddFoodRequestModel {
   descriptionENG: string;
   descriptionARB: string;
   price: number;
-  imageUrl?: string;
-  videoUrl?: string;
+  foodImage?: any;
   subCategory: number;
 }
 
@@ -19,8 +18,7 @@ interface IAddFoodRequestModel {
   descriptionENG: string;
   descriptionARB: string;
   price: number;
-  imageUrl?: string;
-  videoUrl?: string;
+  foodImage?: any;
   subCategory: number;
 }
 
@@ -33,8 +31,7 @@ export class EditFoodRequestModel implements IEditFoodRequestModel {
   descriptionENG: string;
   descriptionARB: string;
   price: number;
-  imageUrl?: string;
-  videoUrl?: string;
+  foodImage?: any;
   subCategory: number;
 }
 
@@ -47,7 +44,6 @@ interface IEditFoodRequestModel {
   descriptionENG: string;
   descriptionARB: string;
   price: number;
-  imageUrl?: string;
-  videoUrl?: string;
+  foodImage?: any;
   subCategory: number;
 }

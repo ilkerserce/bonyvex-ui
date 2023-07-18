@@ -1,9 +1,5 @@
 <div class="bg-video">
-  <video class="bg-video__content" autoplay muted loop>
-    <source src="/assets/videos/login.mp4" type="video/mp4">
-    <source src="img/video.webm" type="video/webm">
-    Your browser is not supported!
-  </video>
+  <img class="bg-video__content" src="/assets/images/login-page.jpg">
 </div>
 <div class="d-flex justify-content-center align-items-center login-container">
   <div class="login-box col-10 col-md-6 col-lg-4 col-xxl-3">
@@ -23,8 +19,7 @@
           <label for="username" class="form-label"
             [ngClass]="{ 'invalid-label': f['username'].touched && loginForm.get('username')?.invalid }">Kullanıcı
             Adı</label>
-          <div
-            [ngClass]="{ 'invalid-feedback-shown': f['username'].touched && f['username'].errors?.['required'] }"
+          <div [ngClass]="{ 'invalid-feedback-shown': f['username'].touched && f['username'].errors?.['required'] }"
             class="invalid-feedback">Kullanıcı adı girilmelidir.</div>
         </div>
         <div class="form-column input-box">
@@ -32,8 +27,7 @@
             [ngClass]="{ 'is-invalid': f['password'].touched && loginForm.get('password')?.invalid }">
           <label for="password" class="form-label"
             [ngClass]="{ 'invalid-label': f['password'].touched && loginForm.get('password')?.invalid }">Şifre</label>
-          <div
-            [ngClass]="{ 'invalid-feedback-shown': f['password'].touched && f['password'].errors?.['required'] }"
+          <div [ngClass]="{ 'invalid-feedback-shown': f['password'].touched && f['password'].errors?.['required'] }"
             class="invalid-feedback">Şifre girilmelidir.</div>
           <div class="form-group">
           </div>

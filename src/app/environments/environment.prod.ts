@@ -1,6 +1,4 @@
 export const environment = {
   production: true,
-  language: "TR";
-  baseUrl: 'http://localhost:5000/api',
-  loginUrl:'loginUrlStr'
+  baseUrl: 'https://www.ilker.kim/api',
 };

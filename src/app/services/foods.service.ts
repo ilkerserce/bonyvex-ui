@@ -38,4 +38,12 @@ export class FoodsService {
     const url = `${this.baseUrl}/${ApiPaths.DeleteFood}/?id=${id}`;
     return this.httpClient.delete<ApiBaseResponseModel>(url);
   }
+
+  uploadFoodImage(file: File) {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    return this.httpClient.post<any>(`${this.baseUrl}/${ApiPaths.Upload}`, formData);
+
+  }
 }

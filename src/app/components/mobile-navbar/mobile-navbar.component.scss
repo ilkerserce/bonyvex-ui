@@ -1,5 +1,8 @@
+@import '/src/styles/abstracts/variables';
+@import '/src/styles/abstracts/mixins';
+
 .mobile-navbar {
-  background-color: #f0f0f0;
+  background-color: $bonyvex-orange;
   padding: 1rem;
   position: fixed;
   bottom: 0;

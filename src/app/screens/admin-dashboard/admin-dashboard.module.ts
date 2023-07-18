@@ -10,6 +10,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FaqListComponent } from './faq-list/faq-list.component';
 import { FaqAddUpdateComponent } from './faq-add-update/faq-add-update.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FaqAddUpdateComponent } from './faq-add-update/faq-add-update.component
     SharedModule,
     RouterModule,
     ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class AdminDashboardModule { }

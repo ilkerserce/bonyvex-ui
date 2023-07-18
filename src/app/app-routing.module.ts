@@ -14,7 +14,7 @@ import { WelcomeComponent } from './screens/customer-screens/welcome/welcome.com
 import { LoginComponent } from './screens/login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'admin/foods', pathMatch: 'full' },
+  { path: '', redirectTo: 'menu', pathMatch: 'full' },
   {
     path: 'admin', component: DashboardLayoutComponent,
     children: [

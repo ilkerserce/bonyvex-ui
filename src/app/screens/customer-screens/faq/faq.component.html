@@ -1,4 +1,7 @@
-<app-box>
+<div class="d-flex justify-content-center align-items-center pt-1 m-5">
+  <img src="/assets/images/bonyvex-logo.png" height="" width="500" class="img-fluid">
+</div>
+<app-box [marginBottom]="true">
   <app-sub-header>
     <ng-container title>
       <ng-container [ngSwitch]="currentLanguage$ | async">

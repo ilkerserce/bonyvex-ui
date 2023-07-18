@@ -27,6 +27,7 @@ export class AddFoodComponent {
   subheaderText = '';
 
   addFoodFormGroup: FormGroup;
+  selectedFile: File;
   foodId!: number;
   data: any;
 
@@ -44,9 +45,8 @@ export class AddFoodComponent {
       foodDescriptionENG: [''],
       foodDescriptionARB: [''],
       foodPrice: [null, Validators.required],
-      foodImageUrl: [''],
-      foodVideoUrl: [''],
-      foodSubCategory: [null, Validators.required]
+      foodImage: [''],
+      foodSubCategory: [null, Validators.required],
     });
   }
 
@@ -80,8 +80,7 @@ export class AddFoodComponent {
       foodDescriptionENG: '',
       foodDescriptioARB: '',
       foodPrice: null,
-      foodImageUrl: '',
-      foodVideoUrl: '',
+      foodfoodImage: '',
       foodSubCategory: null,
     });
   }
@@ -95,8 +94,7 @@ export class AddFoodComponent {
       foodDescriptionENG: data.descriptionENG,
       foodDescriptionARB: data.descriptionARB,
       foodPrice: data.price,
-      foodImageUrl: data.imageUrl,
-      foodVideoUrl: data.videoUrl,
+      foodfoodImage: data.foodImage,
       foodSubCategory: data.subCategory,
     })
   }
@@ -141,8 +139,7 @@ export class AddFoodComponent {
       descriptionENG: addFoodFormGroup.foodDescriptionENG,
       descriptionARB: addFoodFormGroup.foodDescriptionARB,
       price: +addFoodFormGroup.foodPrice,
-      imageUrl: addFoodFormGroup.foodImageUrl,
-      videoUrl: addFoodFormGroup.foodVideoUrl,
+      foodImage: addFoodFormGroup.foodImage,
       subCategory: +addFoodFormGroup.foodSubCategory,
     };
 
@@ -161,8 +158,7 @@ export class AddFoodComponent {
       descriptionENG: addFoodFormGroup.foodDescriptionENG,
       descriptionARB: addFoodFormGroup.foodDescriptionARB,
       price: +addFoodFormGroup.foodPrice,
-      imageUrl: addFoodFormGroup.foodImageUrl,
-      videoUrl: addFoodFormGroup.foodVideoUrl,
+      foodImage: addFoodFormGroup.foodImage,
       subCategory: addFoodFormGroup.foodSubCategory,
     };
     return requestModel;
@@ -215,5 +211,21 @@ export class AddFoodComponent {
       this.addFood()
     }
     // this.router.navigate(['admin/foods']);
+  }
+
+  uploadfoodImage(event: any) {
+    this.selectedFile = event.target.files[0];
+    this.foodsService.uploadFoodImage(this.selectedFile)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: res => {
+          this.addFoodFormGroup.patchValue({
+            foodImage: res.imageUrl
+          });
+        },
+        error: err => {
+          this.toastrHandleService.error(err.message)
+        }
+      });
   }
 }

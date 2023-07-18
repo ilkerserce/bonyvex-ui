@@ -8,7 +8,7 @@
         {{subheaderText}}
       </ng-container>
     </app-sub-header>
-    <form class="d-flex justify-content-center" [formGroup]="addFoodFormGroup">
+    <form class="d-flex justify-content-center" [formGroup]="addFoodFormGroup" enctype="multipart/form-data">
       <div class="form-group">
         <div class="form-column input-box input-bg-white my-4">
           <input type="text" name="foodNameTR" formControlName="foodNameTR"
@@ -86,26 +86,9 @@
           </div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
-          <input type="text" formControlName="foodImageUrl"
-            [ngClass]="{ 'is-invalid': f['foodImageUrl'].touched && addFoodFormGroup.get('foodImageUrl')?.invalid }">
-          <label for="foodImageUrl" class="form-label" foodImageUrl
-            [ngClass]="{ 'invalid-label': f['foodImageUrl'].touched && addFoodFormGroup.get('foodImageUrl')?.invalid }">Yemek
-            Görseli</label>
-          <div
-            [ngClass]="{ 'invalid-feedback-shown': f['foodImageUrl'].touched && f['foodImageUrl'].errors?.['required'] }"
-            class="invalid-feedback">Yemek Görseli yüklenmelidir.
-          </div>
-        </div>
-        <div class="form-column input-box input-bg-white my-4">
-          <input type="text" formControlName="foodVideoUrl"
-            [ngClass]="{ 'is-invalid': f['foodVideoUrl'].touched && addFoodFormGroup.get('foodVideoUrl')?.invalid }">
-          <label for="foodVideoUrl" class="form-label" foodImageUrl
-            [ngClass]="{ 'invalid-label': f['foodVideoUrl'].touched && addFoodFormGroup.get('foodVideoUrl')?.invalid }">Yemek
-            Video URL</label>
-          <div
-            [ngClass]="{ 'invalid-feedback-shown': f['foodVideoUrl'].touched && f['foodVideoUrl'].errors?.['required'] }"
-            class="invalid-feedback">Yemek Video URL girilmelidir.
-          </div>
+          <input type="file" formControlName="foodImage" (change)="uploadfoodImage($event)">
+          <label class="form-label">Yemek Görseli</label>
+          <div class="invalid-feedback">Yemek Görseli yüklenmelidir.</div>
         </div>
         <div class="form-column input-box input-bg-white my-4">
           <select formControlName="foodSubCategory"
@@ -113,7 +96,7 @@
             <option [ngValue]="null">Seçiniz</option>
             <option *ngFor="let subcategory of subCategoryList" [value]="subcategory.id">{{subcategory.nameTR}}</option>
           </select>
-          <label for="foodSubCategory" class="form-label" foodImageUrl
+          <label for="foodSubCategory" class="form-label"
             [ngClass]="{ 'invalid-label': f['foodSubCategory'].touched && f['foodSubCategory'].invalid }">
             Alt Kategori</label>
           <div

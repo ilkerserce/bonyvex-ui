@@ -1,8 +1,9 @@
 <footer>
   <nav class="mobile-navbar">
     <ul class="row">
-      <li class="nav-item col">
-        <div class="row justify-content-between">
+      <li class="nav-item col ">
+        <div class="row justify-content-between align-items-center">
+          <i class="bi bi-translate"></i>
           <form [formGroup]="languageSelectionForm">
             <div class="col">
               <select #languageSelection formControlName="language" class="form-select form-select-lg text-center"
@@ -11,28 +12,23 @@
                   <div class="flag-icon">
                     <img src="assets/icons/TR.png" alt="TR Flag">
                   </div>
-                  TR
+                  Türkçe
                 </option>
                 <option value="ENG">
                   <div class="flag-icon">
                     <img src="assets/icons/ENG.png" alt="ENG Flag">
                   </div>
-                  ENG
+                  English
                 </option>
                 <option value="ARB">
                   <div class="flag-icon">
                     <img src="assets/icons/ARB.png" alt="ARB Flag">
                   </div>
-                  ARB
+                  عربي
                 </option>
               </select>
             </div>
           </form>
-        </div>
-        <div [ngSwitch]="currentLanguage$ | async">
-          <span *ngSwitchCase="'TR'">Türkçe</span>
-          <span *ngSwitchCase="'ENG'">English</span>
-          <span *ngSwitchCase="'ARB'">العربية</span>
         </div>
       </li>
       <li class="nav-item col">
