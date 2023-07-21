@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { CategoriesService } from 'src/app/services/categories.service';
@@ -18,7 +19,8 @@ export class MenuComponent {
 
   constructor(private categoriesService: CategoriesService,
     private toastrService: ToastrService,
-    private languageService: LanguageService) {
+    private languageService: LanguageService,
+    private router: Router) {
     this.currentLanguage$ = this.languageService.getLanguage();
   }
 
@@ -60,5 +62,9 @@ export class MenuComponent {
           this.toastrService.error(err.message);
         }
       })
+  }
+
+  goDetails(foodId: number) {
+    this.router.navigate(['/foods/details', foodId]);
   }
 }

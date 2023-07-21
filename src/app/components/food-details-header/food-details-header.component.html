@@ -1,0 +1,14 @@
+<button class="button-back" (click)="goMenu()">
+  <i class="bi bi-arrow-left-circle-fill px-3"></i>
+  <ng-container [ngSwitch]="currentLanguage$ | async">
+    <ng-container *ngSwitchCase="'TR'">
+      <span>Menüye Geri Dön </span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'ENG'">
+      <span>Back to Menu </span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'ARB'">
+      <span>العودة إلى القائمة</span>
+    </ng-container>
+  </ng-container>
+</button>

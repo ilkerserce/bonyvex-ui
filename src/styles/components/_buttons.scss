@@ -135,3 +135,21 @@
     transform: translateY(0);
   }
 }
+
+.button-link {
+  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button-back {
+  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 100%;
+  padding: 1rem;
+}

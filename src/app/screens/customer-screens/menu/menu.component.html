@@ -21,6 +21,20 @@
       </ul>
     </nav>
   </header>
+  <div class="swip-right-warning">
+    <ng-container [ngSwitch]="currentLanguage$ | async">
+      <ng-container *ngSwitchCase="'TR'">
+        <small>Tüm kategorileri görmek için yana kaydırabilirsiniz.</small>
+      </ng-container>
+      <ng-container *ngSwitchCase="'ENG'">
+        <small>You can swipe to see all categories.</small>
+      </ng-container>
+      <ng-container *ngSwitchCase="'ARB'">
+        <small>يمكنك التمرير لرؤية جميع الفئات.</small>
+      </ng-container>
+    </ng-container>
+
+  </div>
   <main class="menu" style="margin-bottom: 100px">
     <div *ngFor="let subCategory of subCategories">
       <hr>
@@ -40,7 +54,7 @@
         align-items-center py-4 mx-3">
         <ng-container [ngSwitch]="currentLanguage$ | async">
           <ng-container *ngIf="food.imageUrl != '' else noImage">
-            <a href="">
+            <button class="button-link" (click)="goDetails(food.id)">
               <ng-container *ngSwitchCase="'TR'">
                 <div class="col-9 col-md-6 text-start px-3">
                   <div class="col-12 food-name"> {{ food.nameTR }}</div>
@@ -62,7 +76,8 @@
                       food.descriptionARB }}</small></div>
                 </div>
               </ng-container>
-            </a>
+            </button>
+            <div class="col-3 col-md-6 border-start text-end px-3">{{ food.price }}₺</div>
           </ng-container>
           <ng-template #noImage>
             <ng-container *ngSwitchCase="'TR'">

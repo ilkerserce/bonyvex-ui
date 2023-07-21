@@ -1,0 +1,25 @@
+<app-food-details-header></app-food-details-header>
+<ng-container [ngSwitch]="currentLanguage$ | async">
+  <ng-container *ngSwitchCase="'TR'">
+    <h1 class="heading-sub-category">{{ foodData.nameTR }}</h1>
+  </ng-container>
+  <ng-container *ngSwitchCase="'ENG'">
+    <h1 class="heading-sub-category">{{ foodData.nameENG }}</h1>
+  </ng-container>
+  <ng-container *ngSwitchCase="'ARB'">
+    <h1 class="heading-sub-category">{{ foodData.nameARB }}</h1>
+  </ng-container>
+</ng-container>
+<img [src]="foodData.imageUrl" alt="">
+<ng-container [ngSwitch]="currentLanguage$ | async">
+  <ng-container *ngSwitchCase="'TR'">
+    <p class="food-detail-p ">{{ foodData.descriptionTR }}</p>
+  </ng-container>
+  <ng-container *ngSwitchCase="'ENG'">
+    <p class="heading-sub-category">{{ foodData.descriptionENG }}</p>
+  </ng-container>
+  <ng-container *ngSwitchCase="'ARB'">
+    <p class="heading-sub-category">{{ foodData.descriptionARB }}</p>
+  </ng-container>
+</ng-container>
+<app-mobile-navbar></app-mobile-navbar>

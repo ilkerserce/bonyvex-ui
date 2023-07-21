@@ -1,0 +1,14 @@
+@import '/src/styles/abstracts/variables';
+@import '/src/styles/abstracts/mixins';
+
+:host {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: $bonyvex-orange;
+  text-align: center;
+
+  & p {
+    margin: 0rem;
+  }
+}

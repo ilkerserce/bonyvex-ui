@@ -8,6 +8,7 @@ import { NavigationComponent } from '../components/navigation/navigation.compone
 import { DashboardLayoutComponent } from '../layouts/dashboard-layout/dashboard-layout.component';
 import { BoxComponent } from '../components/box/box.component';
 import { SubHeaderComponent } from '../components/sub-header/sub-header.component';
+import { FoodDetailsHeaderComponent } from '../components/food-details-header/food-details-header.component';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTreeModule } from '@angular/material/tree';
@@ -28,6 +29,7 @@ import { MenuContentComponent } from '../components/menu-content/menu-content.co
     MobileNavbarComponent,
     MobileHeaderCategoriesComponent,
     MenuContentComponent,
+    FoodDetailsHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import { MenuContentComponent } from '../components/menu-content/menu-content.co
     MobileNavbarComponent,
     MobileHeaderCategoriesComponent,
     MenuContentComponent,
+    FoodDetailsHeaderComponent,
   ]
 })
 export class SharedModule { }

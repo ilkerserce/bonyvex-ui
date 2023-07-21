@@ -6,10 +6,11 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 80px;
   background-color: $bonyvex-orange;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
+  position: relative;
+  height: 80px;
 
   @include respond(phone) {
     justify-content: normal;
@@ -18,6 +19,7 @@
   nav {
     ul {
       display: flex;
+      height: 80px;
       overflow-x: auto;
       padding: 0;
       margin: 0;
@@ -83,4 +85,12 @@ a.non-selectable {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+.swip-right-warning {
+  text-align: center;
+  font-size: 90%;
+  width: 100%;
+  height: 20px;
+  z-index: 15;
 }
