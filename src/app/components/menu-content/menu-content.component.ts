@@ -18,7 +18,6 @@ export class MenuContentComponent {
     this.categoriesService.getSubCategories(primaryCategoryId).pipe(
       tap((data: any) => {
         this.subCategories = data.subCategories;
-        console.log(this.subCategories)
         // Diğer işlemleri gerçekleştirin (örneğin, bağlı yemekleri almak)
       })
     ).subscribe({

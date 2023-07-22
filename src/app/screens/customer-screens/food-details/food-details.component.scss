@@ -1,0 +1,6 @@
+img {
+  display: block; /* Resmi blok düzende yerleştirerek yanındaki diğer içeriklerle aynı hizada olmasını sağlar */
+  max-width: 100%; /* Resmin container'a sığacak şekilde genişlemesini sağlar */
+  height: auto; /* Dikey boyutunu otomatik ayarlar, orantılı olarak genişlemesini engeller */
+  margin: 0 auto; /* Resmi yatayda merkezler */
+}

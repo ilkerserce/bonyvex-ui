@@ -45,8 +45,7 @@ export class MobileHeaderCategoriesComponent {
   }
 
   ngOnInit(): void {
-    // this.getPrimaryCategories();
-    // console.log(this.primaryCategoryList)
+
   }
 
   populateLists(data: any) {

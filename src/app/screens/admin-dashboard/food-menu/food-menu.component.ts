@@ -49,7 +49,6 @@ export class FoodMenuComponent {
       .subscribe({
         next: res => {
           this.foods = res;
-          console.log(res.data)
         },
         error: err => {
           this.toastrHandleService.error(err.message);

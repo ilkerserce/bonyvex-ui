@@ -75,7 +75,6 @@ export class FaqAddUpdateComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
-          console.log(res);
           this.populateForm(res);
         },
         error: err => {

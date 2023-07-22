@@ -3,20 +3,6 @@
     <nav>
       <ul>
         <li *ngFor="let primaryCategory of primaryCategoryList">
-          <!-- <a (click)="getSubCategories(primaryCategory.id)" class="non-selectable">
-            <img class="me-3" height="25px" width="25px" [src]="primaryCategory.iconUrl">
-            <ng-container [ngSwitch]="currentLanguage$ | async">
-              <ng-container *ngSwitchCase="'TR'">
-                <span>{{primaryCategory.nameTR}}</span>
-              </ng-container>
-              <ng-container *ngSwitchCase="'ENG'">
-                <span>{{primaryCategory.nameENG}}</span>
-              </ng-container>
-              <ng-container *ngSwitchCase="'ARB'">
-                <span>{{primaryCategory.nameARB}}</span>
-              </ng-container>
-            </ng-container>
-          </a> -->
           <button (click)="getSubCategories(primaryCategory.id)" class="button-link-header">
             <img class="me-3" height="25px" width="25px" [src]="primaryCategory.iconUrl">
             <ng-container [ngSwitch]="currentLanguage$ | async">

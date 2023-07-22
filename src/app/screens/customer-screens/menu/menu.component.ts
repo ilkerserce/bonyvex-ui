@@ -55,8 +55,7 @@ export class MenuComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: res => {
-          this.populateFoodList(res['subCategories'])
-          console.log(this.subCategories)
+          this.populateFoodList(res['subCategories']);
         },
         error: err => {
           this.toastrService.error(err.message);

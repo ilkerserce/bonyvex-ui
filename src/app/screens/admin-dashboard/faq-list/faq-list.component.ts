@@ -35,7 +35,6 @@ export class FaqListComponent {
           this.faqs = res;
         },
         error: err => {
-          console.log(err)
           this.toastrHandleService.error(err.message);
         }
       });
