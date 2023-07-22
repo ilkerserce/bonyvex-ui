@@ -3,7 +3,7 @@
     <nav>
       <ul>
         <li *ngFor="let primaryCategory of primaryCategoryList">
-          <a (click)="getSubCategories(primaryCategory.id)" class="non-selectable">
+          <!-- <a (click)="getSubCategories(primaryCategory.id)" class="non-selectable">
             <img class="me-3" height="25px" width="25px" [src]="primaryCategory.iconUrl">
             <ng-container [ngSwitch]="currentLanguage$ | async">
               <ng-container *ngSwitchCase="'TR'">
@@ -16,7 +16,21 @@
                 <span>{{primaryCategory.nameARB}}</span>
               </ng-container>
             </ng-container>
-          </a>
+          </a> -->
+          <button (click)="getSubCategories(primaryCategory.id)" class="button-link-header">
+            <img class="me-3" height="25px" width="25px" [src]="primaryCategory.iconUrl">
+            <ng-container [ngSwitch]="currentLanguage$ | async">
+              <ng-container *ngSwitchCase="'TR'">
+                <span>{{primaryCategory.nameTR}}</span>
+              </ng-container>
+              <ng-container *ngSwitchCase="'ENG'">
+                <span>{{primaryCategory.nameENG}}</span>
+              </ng-container>
+              <ng-container *ngSwitchCase="'ARB'">
+                <span>{{primaryCategory.nameARB}}</span>
+              </ng-container>
+            </ng-container>
+          </button>
         </li>
       </ul>
     </nav>
@@ -24,7 +38,7 @@
   <div class="swip-right-warning">
     <ng-container [ngSwitch]="currentLanguage$ | async">
       <ng-container *ngSwitchCase="'TR'">
-        <small>Tüm kategorileri görmek için yana kaydırabilirsiniz.</small>
+        <small>Tüm kategorileri görmek için üstdeki menüyü yana kaydırabilirsiniz.</small>
       </ng-container>
       <ng-container *ngSwitchCase="'ENG'">
         <small>You can swipe to see all categories.</small>
