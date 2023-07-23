@@ -54,28 +54,28 @@
         align-items-center py-4 mx-3">
         <ng-container [ngSwitch]="currentLanguage$ | async">
           <ng-container *ngIf="food.imageUrl != '' else noImage">
-            <button class="button-link" (click)="goDetails(food.id)">
-              <ng-container *ngSwitchCase="'TR'">
-                <div class="col-9 col-md-6 text-start px-3">
-                  <div class="col-12 food-name"> {{ food.nameTR }}</div>
-                  <div *ngIf="food.descriptionTR != ''" class="col-12 food-name"> <small class="food-description">{{
-                      food.descriptionTR }}</small></div>
-                </div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'ENG'">
-                <div class="col-9 col-md-6 text-start px-3">
-                  <div class="col-12 food-name"> {{ food.nameENG }}</div>
-                  <div *ngIf="food.descriptionENG != ''" class="col-12 food-name"> <small class="food-description">{{
-                      food.descriptionENG }}</small></div>
-                </div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'ARB'">
-                <div class="col-9 col-md-6 text-start px-3">
-                  <div class="col-12 food-name"> {{ food.nameARB }}</div>
-                  <div *ngIf="food.descriptionARB != ''" class="col-12 food-name"> <small class="food-description">{{
-                      food.descriptionARB }}</small></div>
-                </div>
-              </ng-container>
+            <button class="button-link col-9" (click)="goDetails(food.id)">
+                <ng-container *ngSwitchCase="'TR'">
+                  <div class="col-12 col-md-6 text-start px-3">
+                    <div class="col-12 food-name"> {{ food.nameTR }}</div>
+                    <div *ngIf="food.descriptionTR != ''" class="col-12 food-name"> <small class="food-description">{{
+                        food.descriptionTR }}</small></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'ENG'">
+                  <div class="col-9 col-md-6 text-start px-3">
+                    <div class="col-12 food-name"> {{ food.nameENG }}</div>
+                    <div *ngIf="food.descriptionENG != ''" class="col-12 food-name"> <small class="food-description">{{
+                        food.descriptionENG }}</small></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'ARB'">
+                  <div class="col-9 col-md-6 text-start px-3">
+                    <div class="col-12 food-name"> {{ food.nameARB }}</div>
+                    <div *ngIf="food.descriptionARB != ''" class="col-12 food-name"> <small class="food-description">{{
+                        food.descriptionARB }}</small></div>
+                  </div>
+                </ng-container>
             </button>
             <div class="col-3 col-md-6 border-start text-end px-3">{{ food.price }}₺</div>
           </ng-container>

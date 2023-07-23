@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'bonyvex-villa';
-  language = 'TR';
+  title = 'Serçe Restaurant';
 
   expandMenu(expanded: boolean): void {
     const navigation = document.querySelector('.navigation');

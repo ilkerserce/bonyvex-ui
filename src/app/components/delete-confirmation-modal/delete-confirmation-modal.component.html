@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Silme İşlemi</h2>
+<mat-dialog-content>
+  <h1>{{data.nameTR}} isimli nesneyi silmek istediğine emin misiniz?</h1>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-around gap-3">
+  <button mat-button mat-raised-button (click)="onCancel()" color="warn">İptal Et</button>
+  <button (click)="onConfirm()" mat-button mat-raised-button color="accent">Sil</button>
+</mat-dialog-actions>

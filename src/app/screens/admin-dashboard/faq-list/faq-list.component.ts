@@ -41,7 +41,7 @@ export class FaqListComponent {
   }
 
   editFAQ(faqId: number) {
-    this.router.navigate(['faqs/edit', faqId]);
+    this.router.navigate(['admin/faqs/edit/',faqId]);
   }
 
   deleteFAQ(faqId: number) {
