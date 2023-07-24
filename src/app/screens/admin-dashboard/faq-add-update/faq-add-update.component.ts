@@ -49,7 +49,7 @@ export class FaqAddUpdateComponent {
         this.nextButtonText = 'Oluştur';
         this.subheaderTitle = 'Sıkça Sorulan Soru Ekleme';
         this.subheaderText = 'Burada misafirlerimizin sıkça sorduğu soruları ekleme işlemi yapılmaktadır. ' +
-          'Sıkça sorulan bir soruyu ve onun cevabını Türkçe, İngilizce ve Arapça olacak şekilde eklemelisiniz .' +
+          'Sıkça sorulan bir soruyu ve onun cevabını Türkçe, İngilizce ve Arapça olacak şekilde eklemelisiniz. ' +
           'Sıkça sorulan sorular giriş ekranında kullancıya gözükmektedir.';
       }
     })
