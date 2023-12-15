@@ -10,7 +10,7 @@ Menu Listing Page:
 [https://p](https://ornek.sercemenu.com/menu)
 
 Administration Page:
-[https://p](https://ornek.sercemenu.com/login)
+[https://[p](https://ornek.sercemenu.com/login)](https://ornek.sercemenu.com/login)
 
 username: bonyvexadmin
 password: MyHomeYourHome3396!
